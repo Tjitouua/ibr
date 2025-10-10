@@ -24,7 +24,7 @@ const Header = () => {
                 </div>
             </div>
             {/* Bottom Header  */}
-            <div className="w-full flex flex-col bg-blue-100 border-1 border-gray-200 text-sm">
+            <div className="w-full flex flex-col bg-gray-100 border-1 border-gray-200 text-sm">
             <div className="w-full min-h-5 px-2 py-1 flex items-center xl:justify-between justify-end">
                 <nav className="hidden xl:flex">
                     <ul className="flex gap-10">
