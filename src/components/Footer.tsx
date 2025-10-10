@@ -15,7 +15,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-       <footer className="flex flex-col bg-gray-100 px-2">
+       <footer className="flex flex-col bg-blue-100 px-2">
         <div className="w-full min-h-30 border-b border-gray-400 py-9 flex flex-wrap justify-center sm:justify-between gap-10 items-start">
               {/* About Div  */}
               <div className="p-2 flex flex-col max-w-70 justify-start items-start gap-3">
