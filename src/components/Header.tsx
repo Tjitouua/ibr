@@ -41,7 +41,7 @@ const Header = () => {
                 </div>
             </div>
             {/* Bottom Header  */}
-            <div className="w-full flex flex-col bg-gray-100 border-1 border-gray-200 text-sm">
+            <div className="w-full flex flex-col bg-black text-white border-1 border-black text-sm">
             <div className="w-full min-h-5 px-2 py-1 flex items-center xl:justify-between justify-end">
                 <nav className="hidden xl:flex">
                     <ul className="flex gap-10">
@@ -55,7 +55,7 @@ const Header = () => {
                     </ul>
                 </nav>
 
-                <button className="px-4 hidden xl:flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-black hover:border-black py-1 bg-blue-500 text-white">Login</button>
+                <button className="px-4 hidden xl:flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-white hover:border-white py-1 bg-white text-black">Login</button>
 
 
                 {/* Menu Div  */}

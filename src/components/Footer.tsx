@@ -15,7 +15,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-       <footer className="flex flex-col bg-blue-100 px-2">
+       <footer className="flex flex-col bg-black text-white px-2">
         <div className="w-full min-h-30 border-b border-gray-400 py-9 flex flex-wrap justify-center sm:justify-between gap-10 items-start">
               {/* About Div  */}
               <div className="p-2 flex flex-col max-w-70 justify-start items-start gap-3">
@@ -72,29 +72,24 @@ const Footer = () => {
 
 
 
-              {/* Connect with us  */}
-              <div className="p-2 flex flex-col justify-start max-w-70 items-start gap-3 text-sm">
-                  <label className="font-bold text-2xl mb-3">Connect With Us</label>
-                  <label>Stay updated with our latest news and announcements, and never miss an important update from IBR!</label>
-                  <div className="flex flex-wrap gap-3">
-                    {/* Facebook  */}
-                     <div className="w-14 h-14 bg-gray-300 rounded-full flex justify-center items-center text-2xl">
-                        <LuFacebook />
-                     </div>
-                    {/* X (Twitter)  */}
-                     <div className="w-14 h-14 bg-gray-300 rounded-full flex justify-center items-center text-2xl">
-                        <BsTwitterX  />
-                     </div>
-                    {/* Instagram  */}
-                     <div className="w-14 h-14 bg-gray-300 rounded-full flex justify-center items-center text-2xl">
-                        <BsInstagram />
-                     </div>
-                    {/* Instagram  */}
-                     <div className="w-14 h-14 bg-gray-300 rounded-full flex justify-center items-center text-2xl">
-                        <FaLinkedinIn />
-                     </div>
+                            {/* Quick Links  */}
+              <div className="p-2 flex text-sm flex-col min-w-70 sm:min-w-50 justify-start items-start gap-3">
+                  <label className="font-bold text-2xl mb-3">Our Programs</label>
+                  <div className="flex gap-1 flex-col">
+                      <Link to="#">Old Age Pension (OAP)</Link>
+                      <Link to="#">Child Maintenance Grant (CMG)</Link>
+                      <Link to="#">Foster Parent Grant (FPG)</Link>
+                      <Link to="#">Disability Grant (DG)</Link>
+                      <Link to="#">Orphans and Vulnerable Children (OVC) Grant</Link>
+                      <Link to="#">Food Bank Program</Link>
+                      <Link to="#">Disability Grant (DG)</Link>
                   </div>
               </div>
+
+
+
+
+
         </div>
         
 
