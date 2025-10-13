@@ -14,7 +14,7 @@ const Header = () => {
         <header className="w-full flex flex-col gap-3 sticky top-0 z-50">
         <div className="w-full min-h-15 flex flex-col gap-2">
             {/* Top Header  */}
-            <div className="w-full flex bg-white items-center flex-wrap justify-between gap-4 min-h-10 py-1">
+            <div className="w-full flex bg-white items-center flex-wrap justify-between gap-4 min-h-10 py-1 px-5">
                 <div className="flex gap-6 flex-wrap">
                 {/* Image Div  */}
                 <div className="w-25 sm:w-15 h-25 sm:h-15">
@@ -41,10 +41,10 @@ const Header = () => {
                 </div>
             </div>
             {/* Bottom Header  */}
-            <div className="w-full flex flex-col bg-black text-white border-1 border-black text-sm">
+            <div className="w-full flex flex-col bg-black text-white border-1 border-black text-sm px-5">
             <div className="w-full min-h-5 px-2 py-1 flex items-center xl:justify-between justify-end">
                 <nav className="hidden xl:flex">
-                    <ul className="flex gap-10">
+                    <ul className="flex gap-13">
                         <Link to="#">Home</Link>
                         <Link to="#">Overview</Link>
                         <Link to="#">Enrollment</Link>
