@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 
 const Header = () => {
+
+    const navigate = useNavigate();
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -45,7 +47,7 @@ const Header = () => {
             <div className="w-full min-h-5 px-2 py-1 flex items-center xl:justify-between justify-end">
                 <nav className="hidden xl:flex">
                     <ul className="flex gap-13">
-                        <Link to="#">Home</Link>
+                        <Link to="/">Home</Link>
                         <Link to="#">Overview</Link>
                         <Link to="#">Enrollment</Link>
                         <Link to="#">Benefits</Link>
@@ -55,11 +57,11 @@ const Header = () => {
                     </ul>
                 </nav>
 
-                <button className="px-4 hidden xl:flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-white hover:border-white py-1 bg-white text-black">Login</button>
+                <button onClick={() => navigate('/login')} className="px-4 hidden xl:flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-white hover:border-white py-1 bg-white text-black">Login</button>
 
 
                 {/* Menu Div  */}
-                <div className="flex flex xl:hidden gap-3 text-2xl font-bold">
+                <div className="flex xl:hidden gap-3 text-2xl font-bold">
                    {!menuOpen && (
                     <IoMenu className="cursor-pointer" onClick={() => setMenuOpen(true)} />
                    )}
@@ -74,7 +76,7 @@ const Header = () => {
            {/* Phone Screen Div  */}
            {menuOpen && (
             <div className="w-full flex xl:hidden flex-col gap-2 py-3 px-2">
-                 <Link to="#">Home</Link>
+                 <Link to="/">Home</Link>
                  <Link to="#">Overview</Link>
                  <Link to="#">Enrollment</Link>
                  <Link to="#">Benefits</Link>
