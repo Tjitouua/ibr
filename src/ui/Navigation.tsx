@@ -9,7 +9,7 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ icon, nav }) => {
     return (
-         <div className="w-full h-10 flex cursor-pointer  justify-start items-center gap-8">
+         <div className="w-full h-10 px-3 flex cursor-pointer  justify-start items-center gap-8 hover:bg-gray-700">
              {/* <FaHome /> */}
              <div>{icon}</div>
              <label>{nav}</label>
