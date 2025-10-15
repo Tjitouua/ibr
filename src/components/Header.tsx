@@ -83,7 +83,7 @@ const Header = () => {
                  <Link to="#">Exits</Link>
                  <Link to="#">Publication</Link>
                  <Link to="#">Contact Us</Link>
-                 <button className="px-4 w-full flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-black hover:border-black py-1 bg-blue-500 text-white">Login</button>
+                 <button onClick={() => navigate('/login')} className="px-4 w-full flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-black hover:border-black py-1 bg-blue-500 text-white">Login</button>
             </div>
             )}
 

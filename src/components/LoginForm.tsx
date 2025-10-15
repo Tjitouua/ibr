@@ -2,10 +2,14 @@ import React from 'react';
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const LoginForm = () => {
+
+    const navigate = useNavigate();
+
+
     return (
         <div className="min-h-100 py-13 w-full flex justify-center items-center">
                     
@@ -53,7 +57,7 @@ const LoginForm = () => {
             </div>
             
                {/* Button  */}
-               <button className="rounded-md flex 
+               <button onClick={() => navigate('/dashboard')} className="rounded-md flex 
                items-center justify-center bg-blue-500
                 w-full py-2 text-white cursor-pointer 
                 hover:bg-transparent hover:text-black hover:border hover:bg-gray-500">Login</button>
