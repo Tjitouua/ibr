@@ -4,6 +4,7 @@ import DashboardTitles from '../ui/DashboardTitles';
 import DashboardDesc from '../ui/DashboardDesc';
 import DashboardTop from './DashboardTop';
 import GraphsDiv from './GraphsDiv';
+import ScheduleDiv from './ScheduleDiv';
 
 const DashboardSection = () => {
      return (
@@ -15,6 +16,7 @@ const DashboardSection = () => {
 
             <DashboardTop />
             <GraphsDiv />
+            <ScheduleDiv />
 
         </div>
      );
