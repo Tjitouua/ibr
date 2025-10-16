@@ -1,4 +1,7 @@
 import Graphs from "../ui/Graphs";
+import GenderGraph from "./GenderGraph";
+import PaymentsGraph from "./PaymentsGraph";
+import ProgramsGraph from "./ProgramsGraph";
 import RegionGraph from "./RegionGraph";
 
 
@@ -9,23 +12,13 @@ const GraphsDiv = () => {
 
           <RegionGraph />
 
-           <Graphs title="Beneficiaries by Gender" desc="Gender distribution overview">
-               <div>
+          <GenderGraph />
 
-               </div>
-           </Graphs>
+          <ProgramsGraph />
 
-           <Graphs title="Payment Trends" desc="Monthly payment distribution">
-               <div>
+          <PaymentsGraph />
 
-               </div>
-           </Graphs>
-           
-           <Graphs title="Program Enrollment" desc="Beneficiaries per program">
-               <div>
 
-               </div>
-           </Graphs>
         </div>
      );
 }
