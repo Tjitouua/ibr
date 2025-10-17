@@ -1,10 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
+import { IoMenu } from "react-icons/io5";
 
-const AdminHeader = () => {
+// import Navigation from './Navigation';
+import { FaHome } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
+import { FaMoneyBill1 } from "react-icons/fa6";
+import { BsGraphUpArrow } from "react-icons/bs";
+import { BiSolidMessageRoundedError } from "react-icons/bi";
+import { IoMdSettings } from "react-icons/io";
+import Navigation from '../ui/Navigation';
+import { RxCross2 } from "react-icons/rx";
+
+const AdminHeader: React.FC = () => {
+
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+
+
+    const NavigationList = [
+        {
+            icon: <FaHome />,
+            nav: "Dashboard",
+            path: "/dashboard",
+        },
+                {
+            icon: <FaUsers />,
+            nav: "Beneficiaries",
+            path: "/beneficiaries",
+        },
+                {
+            icon: <FaMoneyBill1 />,
+            nav: "Payments",
+            path: "#",
+        },
+                {
+            icon: <BsGraphUpArrow />,
+            nav: "Reports",
+            path: "#",
+        },
+                {
+            icon: <BiSolidMessageRoundedError />,
+            nav: "Grievances",
+            path: "#",
+        },
+                {
+            icon: <IoMdSettings />,
+            nav: "Administration",
+            path: "#",
+        },
+    ];
+
+
+
        return (
-        <header className="w-full flex flex-col gap-3 border-b-gray-200 border-b sticky top-0 z-50 max-w-400">
+        <header className="w-full flex flex-col gap-3 border-b-gray-200 sticky top-0 z-50 border-b max-w-400">
         <div className="w-full min-h-15 flex flex-col gap-2">
             {/* Top Header  */}
             <div className="w-full flex bg-white items-center flex-wrap justify-between gap-4 min-h-10 py-1 px-5">
@@ -33,7 +85,50 @@ const AdminHeader = () => {
                     </div>
                 </div>
             </div>
+
+
             </div>
+
+
+
+            <div className="flex flex-col">
+            {/* Bottom Header  */}
+            <div className="bg-black text-white w-full items-center py-2 flex xl:hidden justify-between px-5">
+               <label>IBR Management</label>
+               <div className="flex gap-3">
+                {!menuOpen && (
+                 <IoMenu className="cursor-pointer text-lg" onClick={() => setMenuOpen(true)} />
+                )}
+                {menuOpen && (
+               <RxCross2 className="cursor-pointer text-lg" onClick={() => setMenuOpen(false)} />
+               )}
+               </div>
+            </div>
+
+
+            
+            {/* Dissapear Div  */}
+            {menuOpen && (
+            <div className="w-full py-4 bg-black sticky top-0 pb-7 z-0 px-4 flex xl:hidden flex-col text-white">
+                {/* <div className="w-full px-3 py-3 mb-10 border-b border-b-white/40"> */}
+                   {/* <label className="text-lg font-semibold">IBR Management</label> */}
+                 {/* </div> */}
+                 <div className="w-full px-3 py-3">
+                   <label className="text-sm text-blue-300">Navigation</label>
+                 </div>
+                    {NavigationList.map((nav, index) => (
+                      <Navigation
+                        key = {index}
+                        icon = {nav.icon}
+                        nav = {nav.nav}
+                        path = {nav.path}
+                      />
+                    ))}
+             </div>
+             )}
+
+            </div>
+            
 
 
 

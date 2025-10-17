@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Navigation from './Navigation';
 import { FaHome } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
@@ -13,26 +14,32 @@ const SideNav: React.FC = () => {
         {
             icon: <FaHome />,
             nav: "Dashboard",
+            path: "/dashboard",
         },
                 {
             icon: <FaUsers />,
             nav: "Beneficiaries",
+            path: "/beneficiaries",
         },
                 {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
+            path: "#",
         },
                 {
             icon: <BsGraphUpArrow />,
             nav: "Reports",
+            path: "#",
         },
                 {
             icon: <BiSolidMessageRoundedError />,
             nav: "Grievances",
+            path: "#",
         },
                 {
             icon: <IoMdSettings />,
             nav: "Administration",
+            path: "#",
         },
     ];
 
@@ -50,6 +57,7 @@ const SideNav: React.FC = () => {
                key = {index}
                icon = {nav.icon}
                nav = {nav.nav}
+               path={nav.path}
            />
            ))}
        </div>

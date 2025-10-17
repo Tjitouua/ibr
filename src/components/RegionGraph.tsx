@@ -7,7 +7,15 @@ const regions = [
     { region: "Ohangwena", beneficiaries: 300 },
     { region: "Otjozondjupa", beneficiaries: 600 },
     { region: "Karas", beneficiaries: 400 },
-    { region: "Hardap", beneficiaries: 250 },
+    { region: "Hardap", beneficiaries: 300 },
+    { region: "Oshana", beneficiaries: 540 },
+    { region: "Oshikoto", beneficiaries: 800 },
+    { region: "Omusati", beneficiaries: 150 },
+    { region: "Kunene", beneficiaries: 370 },
+    { region: "Zambezi", beneficiaries: 200 },
+    { region: "Kavango East", beneficiaries: 690 },
+    { region: "Kavango West", beneficiaries: 480 },
+    { region: "Omaheke", beneficiaries: 430 },
 ];
 
 
