@@ -15,7 +15,7 @@ const Dashboard = () => {
           <div className="w-full xl:w-4/5">
               <AdminHeader />
               <DashboardSection />
-              <DashFooter />
+              <Footer />
           </div>
        </div>
        {/* <Footer /> */}

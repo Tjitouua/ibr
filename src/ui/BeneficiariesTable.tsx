@@ -4,6 +4,8 @@
 
 const BeneficiariesTable = () => {
     return (
+    <div className="flex flex-col gap-1 w-full">
+        <label className="text-[14px] text-gray-400">Showing 7 of 10 beneficiaries</label>
     <table className="text-sm text-gray-500 bg-white">
         <thead className="border-b border-gray-300 bg-white">
             <tr>
@@ -76,6 +78,7 @@ const BeneficiariesTable = () => {
 
         </tbody>
     </table>
+    </div>
     );
 }
 
