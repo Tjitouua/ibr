@@ -24,7 +24,7 @@ const SideNav: React.FC = () => {
                 {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
-            path: "#",
+            path: "/payments",
         },
                 {
             icon: <BsGraphUpArrow />,

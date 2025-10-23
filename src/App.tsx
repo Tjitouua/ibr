@@ -7,6 +7,7 @@ import Index from './pages/Index'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Beneficiaries from './pages/Beneficiaries'
+import Payments from './pages/Payments'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/beneficiaries" element={<Beneficiaries />} />
+          <Route path="/payments" element={<Payments />} />
       </Routes>
     </BrowserRouter>
   )
