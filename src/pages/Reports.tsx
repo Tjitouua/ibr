@@ -1,25 +1,26 @@
+import AdminHeader from "../components/AdminHeader";
+import Footer from "../components/Footer";
+import PaymentsSection from "../components/PaymentsSection";
+import SideNav from "../ui/SiteNav";
 
-import React from 'react'
-import SideNav from '../ui/SiteNav';
-import AdminHeader from '../components/AdminHeader';
-import Footer from '../components/Footer';
-import PaymentsSection from '../components/PaymentsSection';
 
-const Payments = () => {
-    return (
+
+const Reports = () => {
+     return (
         <div className="w-full flex flex-col gap-5 px-7 xl:px-10">
         <div className="w-full flex justify-between items-start min-h-150">
            <SideNav />
            <div className="w-full xl:w-4/5">
                <AdminHeader />
                {/* <BeneficiariesSection /> */}
-               <PaymentsSection />
+               {/* <PaymentsSection /> */}
                <Footer />
            </div>
         </div>
         {/* <Footer /> */}
         </div>
-    );
+     );
 }
 
-export default Payments;
+
+export default Reports;

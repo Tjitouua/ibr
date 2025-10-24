@@ -39,7 +39,7 @@ const AdminHeader: React.FC = () => {
                 {
             icon: <BsGraphUpArrow />,
             nav: "Reports",
-            path: "#",
+            path: "/reports",
         },
                 {
             icon: <BiSolidMessageRoundedError />,
