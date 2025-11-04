@@ -45,7 +45,7 @@ const SideNav: React.FC = () => {
 
 
     return (
-       <div className="w-1/5 h-183 py-4 bg-black sticky top-0 z-0 px-4 hidden xl:flex flex-col text-white">
+       <div className="w-1/5 min-h-screen py-4 bg-black sticky top-0 z-0 px-4 hidden xl:flex flex-col text-white">
         <div className="w-full px-3 py-3 mb-10 border-b border-b-white/40">
             <label className="text-lg font-semibold">IBR Management</label>
         </div>

@@ -5,7 +5,7 @@ import LoginForm from '../components/LoginForm'
 
 const Login = () => {
     return (
-        <div className="w-full flex flex-col justify-center items-center px-7 xl:px-10">
+        <div className="w-full flex flex-col justify-center items-center">
             <Header />
             <LoginForm />
             <Footer />
@@ -14,3 +14,5 @@ const Login = () => {
 }
 
 export default Login
+
+// px-7 xl:px-10 

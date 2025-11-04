@@ -7,7 +7,7 @@ import Benefits from '../components/Benefits';
 
 const Index = () => {
     return (
-        <div className="w-full min-h-screen flex flex-col justify-center items-center px-7 xl:px-10">
+        <div className="w-full min-h-screen flex flex-col justify-center items-center">
             <Header />
              <Hero />
              <About />
