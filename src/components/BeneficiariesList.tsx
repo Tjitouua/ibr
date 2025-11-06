@@ -10,6 +10,23 @@ import Filters from "./Filters";
 const BeneficiariesList: React.FC = () => {
 
     const [showFilters, setShowFilters] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+
+
+    const [selectedFilters, setSelectedFilters] = useState({
+       Region: "",
+       Gender: "",
+       Program: "",
+       Status: "",
+    });
+
+    const handleFilterChange = (category: string, value: string) => {
+       setSelectedFilters((prev) => ({
+         ...prev,
+         [category]: value,
+       }));
+    };
+    
 
 
     const filterCategories = [
@@ -17,7 +34,7 @@ const BeneficiariesList: React.FC = () => {
           name: "Region",
           options: [
             { label: "Khomas", value: "Khomas" },
-            { label: "Erongo", value: "erongo" },
+            { label: "Erongo", value: "Erongo" },
             { label: "Oshana", value: "Oshana" },
             { label: "Kavango East", value: "Kavango East" },
             { label: "Zambezi", value: "Zambezi" },
@@ -42,9 +59,9 @@ const BeneficiariesList: React.FC = () => {
        {
          name: "Program",
          options: [
-           { label: "Old Age Grand", value: "Old Age Grand" },
-           { label: "Child Grand", value: "Child Grand" },
-           { label: "Disability Grand", value: "Disability Grand" },
+           { label: "Old Age Grant", value: "Old Age Grant" },
+           { label: "Child Grant", value: "Child Grant" },
+           { label: "Disability Grant", value: "Disability Grant" },
            { label: "Food Support", value: "Food Support" },
            { label: "Foster Care", value: "Foster Care" },
          ],
@@ -75,7 +92,7 @@ const BeneficiariesList: React.FC = () => {
             <div className="flex w-full justify-between items-center">
             <div className="flex w-[86%] px-3 rounded-md border items-center justify-start gap-2 border-gray-400 focus-within:border-black">
                 <IoSearchSharp className="text-gray-500" />
-                <input className="px-3 py-2 w-full outline-none border-none focus:ring-0" placeholder="Search Beneficiaries" type="text" />
+                <input className="px-3 py-2 w-full outline-none border-none focus:ring-0" placeholder="Search Beneficiaries" type="text" onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
             <button onClick={() => setShowFilters(!showFilters)} className="flex justify-center items-center gap-3 rounded-lg border border-gray-400 py-2 px-5 w-[13%] hover:bg-blue-600 hover:text-white cursor-pointer"><LuFilter /> Filter</button>
             </div>
@@ -86,7 +103,11 @@ const BeneficiariesList: React.FC = () => {
             
             {/* Filtering Div  */}
             {showFilters && (
-                <Filters categories={filterCategories} />
+                <Filters 
+                  categories={filterCategories} 
+                  selectedFilters={selectedFilters}
+                  onChange={handleFilterChange}
+                />
             )}
 
 
@@ -96,9 +117,21 @@ const BeneficiariesList: React.FC = () => {
 
 
             {/* Table  */}
-            <BeneficiariesTable />
+            <BeneficiariesTable searchQuery={searchQuery} filters={selectedFilters} />
         </div>
      );
 }
 
 export default BeneficiariesList;
+
+
+
+
+
+
+
+
+
+
+
+
