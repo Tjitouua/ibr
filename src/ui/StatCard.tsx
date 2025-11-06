@@ -11,7 +11,7 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ title, icon, value, trend }) => {
     return (
-     <div className="py-1 px-3 flex min-h-30 justify-center gap-1 w-full flex-col border border-gray-400 sm:w-46 rounded-lg">
+     <div className="py-1 px-4 flex min-h-30 justify-center gap-1 w-full flex-col border border-gray-400 sm:w-55 rounded-lg">
         <div className="w-full flex gap-2 justify-between text-sm items-center text-gray-500">
            <label className="font-bold">{title}</label>
            {/* <FiUsers /> */}

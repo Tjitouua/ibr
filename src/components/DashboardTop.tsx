@@ -39,12 +39,7 @@ const DashboardTop: React.FC = () => {
         value: "322 161",
         trend: "+8% from last month",
       },
-      {
-        title: "Exits",
-        icon: <BiMessageRounded />,
-        value: "164 080",
-        trend: "-5 from last week",
-      },
+
     ];
 
 
