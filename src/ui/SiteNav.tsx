@@ -7,6 +7,7 @@ import { FaMoneyBill1 } from "react-icons/fa6";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
+import { IoLayers } from "react-icons/io5";
 
 const SideNav: React.FC = () => {
 
@@ -15,6 +16,11 @@ const SideNav: React.FC = () => {
             icon: <FaHome />,
             nav: "Dashboard",
             path: "/dashboard",
+        },
+        {
+            icon: <IoLayers />,
+            nav: "Programs",
+            path: "#",
         },
                 {
             icon: <FaUsers />,

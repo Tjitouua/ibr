@@ -10,27 +10,39 @@ const DashboardTop: React.FC = () => {
 
     const StatCardList = [
        {
-         title: "Total Beneficiaries",
+         title: "Total Enrollments",
          icon: <FiUsers />,
-         value: "1,640",
+         value: "308 822",
          trend: "+12% from last month",
        },
        {
-        title: "Active Programs",
+        title: "Males",
+        icon: <FiUsers />,
+        value: "119 741",
+        trend: "+12% from last month",
+      },
+      {
+        title: "Females",
+        icon: <FiUsers />,
+        value: "184 724",
+        trend: "+12% from last month",
+      },
+       {
+        title: "Paid Amount",
         icon: <PiPulseBold />,
-        value: "8",
+        value: "N$ 467 516 000",
         trend: "2 new this quarter",
       },
       {
-        title: "Payments This Month",
+        title: "Total Registrations",
         icon: <BsCreditCard />,
-        value: "$245,680",
+        value: "322 161",
         trend: "+8% from last month",
       },
       {
-        title: "Pending Grievances",
+        title: "Exits",
         icon: <BiMessageRounded />,
-        value: "23",
+        value: "164 080",
         trend: "-5 from last week",
       },
     ];

@@ -60,10 +60,10 @@ const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
       const matchesSearch = Object.values(b).join(" ").toLowerCase().includes(normalizedQuery);
 
       const matchesFilters = 
-      (!filters.Region || b.region === filters.Region) &&
-      (!filters.Gender || b.gender === filters.Gender) &&
-      (!filters.Program || b.program === filters.Program) &&
-      (!filters.Status || b.status === filters.Status);
+      (!filters.Region || b.region.toLowerCase() === filters.Region.toLowerCase()) &&
+      (!filters.Gender || b.gender.toLowerCase() === filters.Gender.toLowerCase()) &&
+      (!filters.Program || b.program.toLowerCase() === filters.Program.toLowerCase()) &&
+      (!filters.Status || b.status.toLowerCase() === filters.Status.toLowerCase());
 
       return matchesSearch && matchesFilters;
    });
