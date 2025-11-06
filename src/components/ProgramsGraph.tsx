@@ -1,47 +1,56 @@
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 import Graphs from "../ui/Graphs";
 
+const regions = [
+    { program: "CBIG", enrolled: 16520400 },
+    { program: "Temporary Disability Grant", enrolled: 17196800 },
+    { program: "Permanent Disability Grant", enrolled: 102241600 },
+    { program: "Street Committee Member", enrolled: 4500 },
+    { program: "Assistant Teachers", enrolled: 4000 },
+    { program: "Old Age Grant", enrolled: 609150400 },
 
-const programEnrollment = [
-    { program: "Old Age Grant", enrolled: 180 },
-    { program: "Child Grant", enrolled: 250 },
-    { program: "Disability Grant", enrolled: 90 },
-    { program: "Foster Care", enrolled: 120 },
-    { program: "War Veterans", enrolled: 60 },
 ];
 
 
-
-const ProgramsGraph: React.FC = () => {
+const ProgramsGraph = () => {
     return (
-                 
-    <Graphs title="Program Enrollment" desc="Beneficiaries per program">
-        <div className="w-full h-70 mt-2 text-[10px] font-bold text-black">
-           <ResponsiveContainer width="100%" height="100%">
-                 <LineChart
-                    data={programEnrollment}
-                    margin={{ top: 0, right: 30, left: 0, bottom: 15 }}
-                 >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="program" interval={0} angle={-30} textAnchor="end" />
-                    <YAxis />
-                    <Tooltip formatter={(value) => `${value} enrolled`} />
-                    <Line
-                      type="monotone"
-                      dataKey="enrolled"
-                      stroke="#36454F"
-                      strokeWidth={2}
-                      dot={{r: 4}}
-                      activeDot={{r: 6}}
-                     />
-                 </LineChart>
-           </ResponsiveContainer>
-        </div>
-    </Graphs>
+ <Graphs title="Enrollments by Region" desc="Distribution across Namibia's 14 regions">
+    <div className="w-full h-70 mt-2 text-[10px] font-bold text-black">
+       <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={regions} margin={{ top: 0, right: 30, left: 0, bottom: 15 }}>
+               <CartesianGrid strokeDasharray="3 3" />
+               <XAxis dataKey="program" interval={0} angle={-30} textAnchor="end" />
+               <YAxis tickFormatter={(value) => `${(value / 1_000_000).toFixed(0)}M`} />
+               <Tooltip />
+               <Bar dataKey="enrolled" fill="#36454F" />
+            </BarChart>
+       </ResponsiveContainer>
+    </div>
+ </Graphs>
     );
 }
 
 export default ProgramsGraph;
+
+
+
+
+
+/*
+
+
+
+    { program: "CBIG", enrolled: 16520400 },
+    { program: "Temporary Disability Grant", enrolled: 17196800 },
+    { program: "Permanent Disability Grant", enrolled: 102241600 },
+    { program: "Street Committee Member", enrolled: 4500 },
+    { program: "Assistant Teachers", enrolled: 4000 },
+    { program: "Old Age Grant", enrolled: 609150400 },
+
+
+
+
+*/
 
 
 

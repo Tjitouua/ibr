@@ -1,6 +1,7 @@
 import Graphs from "../ui/Graphs";
 import GenderGraph from "./GenderGraph";
 import PaymentsGraph from "./PaymentsGraph";
+import ProgramGraph from "./ProgramGraph";
 import ProgramsGraph from "./ProgramsGraph";
 import RegionGraph from "./RegionGraph";
 
@@ -13,6 +14,8 @@ const GraphsDiv = () => {
           <RegionGraph />
 
           <GenderGraph />
+
+          <ProgramGraph />
 
           <ProgramsGraph />
 

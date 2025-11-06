@@ -3,6 +3,13 @@ import StatCard from "../ui/StatCard";
 import { BsCreditCard } from "react-icons/bs";
 import { BiMessageRounded } from "react-icons/bi";
 import { PiPulseBold } from "react-icons/pi";
+import { IoWomanOutline } from "react-icons/io5";
+import { PiDressBold } from "react-icons/pi";
+import { TbBrandRedhat } from "react-icons/tb";
+import { LuClipboardPenLine } from "react-icons/lu";
+import { GiMoneyStack } from "react-icons/gi";
+import { LiaMoneyBillWaveAltSolid } from "react-icons/lia";
+import { PiMoneyWavyBold } from "react-icons/pi";
 // import { title } from "process";
 
 
@@ -17,27 +24,27 @@ const DashboardTop: React.FC = () => {
        },
        {
         title: "Males",
-        icon: <FiUsers />,
+        icon:  <TbBrandRedhat />,
         value: "119 741",
-        trend: "+12% from last month",
+        trend: "38.77%",
       },
       {
         title: "Females",
-        icon: <FiUsers />,
+        icon:  <PiDressBold />,
         value: "184 724",
-        trend: "+12% from last month",
+        trend: "59.82%",
       },
        {
         title: "Paid Amount",
-        icon: <PiPulseBold />,
+        icon:  <PiMoneyWavyBold />,
         value: "N$ 467 516 000",
-        trend: "2 new this quarter",
+        trend: "+0% from last month",
       },
       {
         title: "Total Registrations",
-        icon: <BsCreditCard />,
+        icon:  <LuClipboardPenLine />,
         value: "322 161",
-        trend: "+8% from last month",
+        trend: "+4% from last month",
       },
 
     ];

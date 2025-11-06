@@ -4,18 +4,22 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, type PieLabelRenderP
 
 
 
-const GenderGraph = () => {
+const ProgramGraph = () => {
 
     const genderData = [
-       { name: "Male", value: 900 },
-       { name: "Female", value: 1100 },
+       { name: "CBIG", value: 25369 },
+       { name: "Temporary Disability Grant", value: 4896 },
+       { name: "Permanent Disability Grant", value: 53852 },
+       { name: "Old Age Grant", value: 223434 },
+       { name: "Street Committee Member", value: 11100 },
+       { name: "Assistant Teachers", value: 22900 },
     ];
 
-    const COLORS = ["#36454F", "#1434A4"];
+    const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF"];
 
 
      return (    
-    <Graphs title="Enrollments by Gender" desc="Gender distribution overview">
+    <Graphs title="Enrollments by Programme" desc="Programme distribution overview">
         <div className="w-full h-70 mt-2 text-[10px] font-bold text-black">
             <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -23,7 +27,7 @@ const GenderGraph = () => {
                           data={genderData} 
                           dataKey="value" 
                           nameKey="name" 
-                          outerRadius={90} 
+                          outerRadius={105} 
                           label={(props: any) => {
                             const name = props.name;
                             const percent = props.percent ?? 0;
@@ -34,7 +38,7 @@ const GenderGraph = () => {
                             <Cell key={index} fill={COLORS[index % COLORS.length]} />
                           ))}
                        </Pie>
-                       <Tooltip formatter={(value) => `${value} beneficiaries`} />
+                       <Tooltip formatter={(value) => `${value} enrollments`} />
                   </PieChart>
             </ResponsiveContainer>
         </div>
@@ -43,4 +47,4 @@ const GenderGraph = () => {
      );
 }
 
-export default GenderGraph;
+export default ProgramGraph;
