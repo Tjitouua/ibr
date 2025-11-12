@@ -8,6 +8,9 @@ import { BsGraphUpArrow } from "react-icons/bs";
 import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
 import { IoLayers } from "react-icons/io5";
+import { GiExitDoor } from "react-icons/gi";
+import { ImExit } from "react-icons/im";
+import { FaClipboardList } from "react-icons/fa";
 
 const SideNav: React.FC = () => {
 
@@ -20,23 +23,34 @@ const SideNav: React.FC = () => {
         {
             icon: <IoLayers />,
             nav: "Programs",
-            path: "#",
+            path: "/programs",
         },
                 {
             icon: <FaUsers />,
             nav: "Beneficiaries",
             path: "/beneficiaries",
         },
+        {
+            icon: <ImExit />,
+            nav: "Exits",
+            path: "/exits",
+        },
                 {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
             path: "/payments",
         },
-                {
+        {
+            icon: <FaClipboardList />,
+            nav: "Enrollments",
+            path: "/reports",
+        },
+        {
             icon: <BsGraphUpArrow />,
             nav: "Reports",
             path: "/reports",
         },
+        /*
                 {
             icon: <BiSolidMessageRoundedError />,
             nav: "Grievances",
@@ -47,6 +61,7 @@ const SideNav: React.FC = () => {
             nav: "Administration",
             path: "#",
         },
+        */
     ];
 
 
