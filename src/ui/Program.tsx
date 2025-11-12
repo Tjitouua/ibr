@@ -20,7 +20,7 @@ interface ProgramCardProps {
 
 const Program: React.FC<ProgramCardProps> = ({ name, budget, beneficiary, males, females }) => {
     return (
-        <div className="flex flex-col p-6 py-14 rounded-xl border items-center border-gray-400 gap-6 min-w-92 hover:shadow-2xl">
+        <div className="flex flex-col p-6 py-12 rounded-xl border items-center border-white gap-6 min-w-92 hover:shadow-xl">
              <label className="font-bold text-xl">{name}</label>
 
              <div className="w-full flex pb-3 justify-between border-b border-gray-400 gap-5 text-[13px] text-gray-700 items-center">
