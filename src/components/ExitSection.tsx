@@ -6,6 +6,8 @@ import DashboardTop from './DashboardTop';
 import GraphsDiv from './GraphsDiv';
 import ScheduleDiv from './ScheduleDiv';
 import ExitTop from './ExitTop';
+import ExitsGraphDiv from './ExitsGraphDiv';
+import ExitsListDiv from './ExitsListDiv';
 
 const ExitSection = () => {
      return (
@@ -16,8 +18,9 @@ const ExitSection = () => {
             </div>
 
             <ExitTop />
-            <GraphsDiv />
-            <ScheduleDiv />
+            <ExitsGraphDiv />
+            <ExitsListDiv />
+            {/* <ScheduleDiv /> */}
 
         </div>
      );

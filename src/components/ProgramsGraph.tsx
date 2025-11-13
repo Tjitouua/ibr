@@ -14,13 +14,13 @@ const regions = [
 
 const ProgramsGraph = () => {
     return (
- <Graphs title="Enrollments by Region" desc="Distribution across Namibia's 14 regions">
+ <Graphs title="Total payments by Programme" desc="Payments across all Programme">
     <div className="w-full h-70 mt-2 text-[10px] font-bold text-black">
        <ResponsiveContainer width="100%" height="100%">
             <BarChart data={regions} margin={{ top: 0, right: 30, left: 0, bottom: 15 }}>
                <CartesianGrid strokeDasharray="3 3" />
                <XAxis dataKey="program" interval={0} angle={-30} textAnchor="end" />
-               <YAxis tickFormatter={(value) => `${(value / 1_000_000).toFixed(0)}M`} />
+               <YAxis />
                <Tooltip />
                <Bar dataKey="enrolled" fill="#36454F" />
             </BarChart>

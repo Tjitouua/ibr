@@ -40,16 +40,16 @@ const SideNav: React.FC = () => {
             nav: "Payments",
             path: "/payments",
         },
-        {
-            icon: <FaClipboardList />,
-            nav: "Enrollments",
-            path: "/reports",
-        },
-        {
-            icon: <BsGraphUpArrow />,
-            nav: "Reports",
-            path: "/reports",
-        },
+        // {
+            // icon: <FaClipboardList />,
+            // nav: "Enrollments",
+            // path: "/reports",
+        // },
+        // {
+            // icon: <BsGraphUpArrow />,
+            // nav: "Reports",
+            // path: "/reports",
+        // },
         /*
                 {
             icon: <BiSolidMessageRoundedError />,
