@@ -15,7 +15,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 const DashFooter = () => {
     return (
-       <footer className="flex w-full flex-col mt-15 bg-black text-white px-5 max-w-400">
+       <footer className="flex w-full flex-col mt-15 bg-orange-300 text-white px-5">
         <div className="w-full min-h-30 border-b border-gray-400 py-9 flex flex-wrap justify-center sm:justify-around gap-10 items-start">
               {/* About Div  */}
               <div className="p-2 flex flex-col max-w-70 justify-start items-start gap-3">

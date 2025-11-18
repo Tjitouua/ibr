@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
-import { IoMenu } from "react-icons/io5";
+import { IoLayers, IoMenu } from "react-icons/io5";
 
 // import Navigation from './Navigation';
 import { FaHome } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { BiSolidMessageRoundedError } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
 import Navigation from '../ui/Navigation';
 import { RxCross2 } from "react-icons/rx";
+import { ImExit } from 'react-icons/im';
 
 const AdminHeader: React.FC = () => {
 
@@ -21,35 +22,31 @@ const AdminHeader: React.FC = () => {
 
 
     const NavigationList = [
+
         {
             icon: <FaHome />,
             nav: "Dashboard",
             path: "/dashboard",
+        },
+        {
+            icon: <IoLayers />,
+            nav: "Programs",
+            path: "/programs",
         },
                 {
             icon: <FaUsers />,
             nav: "Beneficiaries",
             path: "/beneficiaries",
         },
+        {
+            icon: <ImExit />,
+            nav: "Exits",
+            path: "/exits",
+        },
                 {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
             path: "/payments",
-        },
-                {
-            icon: <BsGraphUpArrow />,
-            nav: "Reports",
-            path: "/reports",
-        },
-                {
-            icon: <BiSolidMessageRoundedError />,
-            nav: "Grievances",
-            path: "#",
-        },
-                {
-            icon: <IoMdSettings />,
-            nav: "Administration",
-            path: "#",
         },
     ];
 
