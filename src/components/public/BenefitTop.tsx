@@ -14,6 +14,12 @@ const BenefitTop: React.FC = () => {
             value: "N$ 467,534,500",
             trend: "Across all social protection programs",
           },
+          {
+            title: "Social Programs",
+            icon:  <PiMoneyWavyBold />,
+            value: "6 Programs",
+            trend: "Across all benefit categories",
+          },
        {
          title: "Active Beneficiaries",
          icon: <FiUsers />,
