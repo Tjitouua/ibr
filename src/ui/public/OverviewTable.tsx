@@ -1,89 +1,114 @@
 import React, { useState } from 'react';
 
 interface Beneficiary {
-    id: string;
-    name: string;
-    age: number;
-    gender: string;
-    region: string;
-    program: string;
-    status: "Active" | "Inactive" | "Pending"
-}
-
-interface Props {
-    searchQuery:string;
-    filters: {
-        Region: string;
-        Gender: string;
-        Program: string;
-        Status: string;
-    }
+    benefit: string;
+    enrolment: number;
+    males: number;
+    females: number;
+    exits: number;
+    registration: number;
+    amount: number;
+    percent: number;
+    // status: "Active" | "Inactive" | "Pending"
 }
 
 
 
-const OverviewTable: React.FC<Props> = ({ searchQuery, filters }) => {
+
+const OverviewTable = () => {
 
     const beneficiaries: Beneficiary[] = [
         {
-           id: "07110200628",
-           name: "Beatrix Hengua",
-           age: 43,
-           gender: "Female",
-           region: "Otjozondjupa",
-           program: "Old Age Grant",
-           status: "Active",
+           benefit: "CBIG",
+           enrolment: 25369,
+           males: 7582,
+           females: 16570,
+           exits: 0,
+           registration: 27534,
+           amount: 16520400,
+           percent: 13,
         },
         {
-            id: "07110200629",
-            name: "Tjitouua Mapoha",
-            age: 23,
-            gender: "Male",
-            region: "Khomas",
-            program: "Child Grant",
-            status: "Inactive",
+            benefit: "CLEANERS",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
          },
          {
-            id: "07110200627",
-            name: "Weriuka Hipose",
-            age: 23,
-            gender: "Female",
-            region: "Otjozondjupa",
-            program: "Child Grant",
-            status: "Pending",
+            benefit: "TEMPORARY DISABILITY GRANT",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "PERMANENT DISABILITY GRANT",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "COOKS",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "COORDINATOR",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "CASUAL WORKERS",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "ASSISTANT TEACHERS",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
+         },
+         {
+            benefit: "OLD AGE GRANT",
+            enrolment: 25369,
+            males: 7582,
+            females: 16570,
+            exits: 0,
+            registration: 27534,
+            amount: 16520400,
+            percent: 13,
          },
    ];
-
-
-   
-   const normalizedQuery = searchQuery.toLowerCase();
-
-   const filteredData = beneficiaries.filter((b) => {
-      const matchesSearch = Object.values(b).join(" ").toLowerCase().includes(normalizedQuery);
-
-      const matchesFilters = 
-      (!filters.Region || b.region.toLowerCase() === filters.Region.toLowerCase()) &&
-      (!filters.Gender || b.gender.toLowerCase() === filters.Gender.toLowerCase()) &&
-      (!filters.Program || b.program.toLowerCase() === filters.Program.toLowerCase()) &&
-      (!filters.Status || b.status.toLowerCase() === filters.Status.toLowerCase());
-
-      return matchesSearch && matchesFilters;
-   });
-
-
-   const getStatusBadge = (status: Beneficiary["status"]): string => {
-         switch (status) {
-            case "Active":
-                return "inline-block py-1 text-[12px] px-2 rounded-xl bg-blue-600/70 text-white";
-            case "Inactive":
-                return "inline-block py-1 text-[12px] px-2 rounded-xl bg-red-700/70 text-white";
-            case "Pending":
-                return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
-         }
-   }
-   
-
-
 
 
 
@@ -93,44 +118,31 @@ const OverviewTable: React.FC<Props> = ({ searchQuery, filters }) => {
     <table className="text-sm text-gray-500 bg-white">
         <thead className="border-b border-gray-300 bg-white">
             <tr>
-                <th className="px-3 py-3 text-left">ID</th>
-                <th className="px-3 py-3 text-left">Name</th>
-                <th className="px-3 py-3 text-left">Age</th>
-                <th className="px-3 py-3 text-left">Gender</th>
-                <th className="px-3 py-3 text-left">Region</th>
-                <th className="px-3 py-3 text-left">Program</th>
-                <th className="px-3 py-3 text-left">Status</th>
-                <th className="px-3 py-3 text-left">Actions</th>
+                <th className="px-3 py-3 text-left">Benefit</th>
+                <th className="px-3 py-3 text-left">Enrolment</th>
+                <th className="px-3 py-3 text-left">Males</th>
+                <th className="px-3 py-3 text-left">Females</th>
+                <th className="px-3 py-3 text-left">Exits</th>
+                <th className="px-3 py-3 text-left">Registration</th>
+                <th className="px-3 py-3 text-left">Amount</th>
+                <th className="px-3 py-3 text-left">Percent %</th>
             </tr>
         </thead>
         <tbody>
-            {filteredData.map((b) => (
+            {beneficiaries.map((b) => (
             <tr className="border-b border-gray-300">
-                <td className="px-2 py-2 text-left">{b.id}</td>
-                <td className="px-2 py-2 text-left">{b.name}</td>
-                <td className="px-2 py-2 text-left">{b.age}</td>
-                <td className="px-2 py-2 text-left">{b.gender}</td>
-                <td className="px-2 py-2 text-left">{b.region}</td>
-                <td className="px-2 py-2 text-left">{b.program}</td>
-                <td className="px-2 py-2 text-left">
-                    <div className={getStatusBadge(b.status)}>
-                      {b.status}
-                    </div>
-                </td>
-                <td className="px-2 py-2 text-left">
-                    <button className="px-3 rounded-sm cursor-pointer py-2 flex justify-center items-center hover:text-white hover:bg-blue-600">View</button>
-                </td>
+                <td className="px-2 py-3 text-left">{b.benefit}</td>
+                <td className="px-2 py-3 text-left font-bold ">{b.enrolment}</td>
+                <td className="px-2 py-3 text-left ">{b.males}</td>
+                <td className="px-2 py-3 text-left font-bold ">{b.females}</td>
+                <td className="px-2 py-3 text-left">{b.exits}</td>
+                <td className="px-2 py-3 text-left font-bold">{b.registration}</td>
+                <td className="px-2 py-3 text-left">
+                    <div className="min-w-2 bg-orange-300 inline-flex py-1 px-3 rounded text-black ">N$ {b.amount.toLocaleString()}</div>
+                    </td>
+                <td className="px-2 py-3 text-left font-bold">{b.percent}</td>
             </tr>
              ))} 
-
-
-            {filteredData.length === 0 && (
-               <tr>
-                  <td colSpan={8} className="text-center py-5 text-gray-400">
-                    No beneficiaries found
-                  </td>
-               </tr>
-            )}
 
 
 

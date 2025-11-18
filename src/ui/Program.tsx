@@ -27,12 +27,12 @@ const Program: React.FC<ProgramCardProps> = ({ name, budget, beneficiary, males,
                   {/* Budget Div  */}
                   <div className="w-1/2 flex flex-col gap-1">
                       <div className="flex items-center gap-2"><PiMoneyWavyBold /><label>Budget</label></div>
-                      <label className="text-sm font-bold text-black">N$ {budget}</label>
+                      <label className="text-sm font-bold text-black">N$ {budget.toLocaleString()}</label>
                   </div>
                   {/* Beneficiaries Div  */}
                   <div className="w-1/2 flex flex-col gap-1">
                       <div className="flex items-center gap-2"><LuUsers /><label>Beneficiaries</label></div>
-                      <label className="text-sm font-bold text-black">{beneficiary}</label>
+                      <label className="text-sm font-bold text-black">{beneficiary.toLocaleString()}</label>
                   </div>
              </div>
 
@@ -41,12 +41,12 @@ const Program: React.FC<ProgramCardProps> = ({ name, budget, beneficiary, males,
                   {/* Male Div  */}
                   <div className="w-1/2 flex flex-col gap-1">
                       <div className="flex items-center gap-2"><TbBrandRedhat /><label>Males</label></div>
-                      <label className="text-sm font-bold text-black">{males}</label>
+                      <label className="text-sm font-bold text-black">{males.toLocaleString()}</label>
                   </div>
                   {/* Female Div  */}
                   <div className="w-1/2 flex flex-col gap-1">
                       <div className="flex items-center gap-2"><PiDressBold /><label>Females</label></div>
-                      <label className="text-sm font-bold text-black">{females}</label>
+                      <label className="text-sm font-bold text-black">{females.toLocaleString()}</label>
                   </div>
              </div>
 

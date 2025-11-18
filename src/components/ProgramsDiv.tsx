@@ -42,7 +42,7 @@ const ProgramsDiv: React.FC = () => {
 
 
     return (
-        <div className="w-full py-1 flex justify-between flex-wrap gap-6 bg-red-400 rounded-lg items-center">
+        <div className="w-full py-1 flex justify-between flex-wrap gap-6 rounded-lg items-center">
             {ProgramCardList.map((program, index) => (
              <Program
                key={index}

@@ -83,7 +83,7 @@ const OverviewList: React.FC = () => {
      return (
         <div className="w-full min-h-20 pb-8 py-3 px-5 mb-15 flex flex-col gap-3 bg-white rounded-lg border border-gray-300">
             {/* Table  */}
-            <OverviewTable searchQuery={searchQuery} filters={selectedFilters} />
+            <OverviewTable />
         </div>
      );
 }
