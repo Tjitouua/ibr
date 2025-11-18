@@ -54,6 +54,8 @@ const OverviewTable: React.FC<Props> = ({ searchQuery, filters }) => {
          },
    ];
 
+
+   
    const normalizedQuery = searchQuery.toLowerCase();
 
    const filteredData = beneficiaries.filter((b) => {
@@ -79,6 +81,7 @@ const OverviewTable: React.FC<Props> = ({ searchQuery, filters }) => {
                 return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
          }
    }
+   
 
 
 
@@ -118,7 +121,7 @@ const OverviewTable: React.FC<Props> = ({ searchQuery, filters }) => {
                     <button className="px-3 rounded-sm cursor-pointer py-2 flex justify-center items-center hover:text-white hover:bg-blue-600">View</button>
                 </td>
             </tr>
-            ))}
+             ))} 
 
 
             {filteredData.length === 0 && (
