@@ -13,7 +13,7 @@ const Header = () => {
 
 
     return (
-        <header className="w-full flex flex-col gap-3 sticky top-0 z-50 max-w-400">
+        <header className="w-full flex flex-col gap-3 sticky top-0 z-50">
         <div className="w-full min-h-15 flex flex-col gap-2">
             {/* Top Header  */}
             <div className="w-full flex bg-white items-center flex-wrap justify-between gap-4 min-h-10 py-1 px-5">
