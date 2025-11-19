@@ -7,7 +7,7 @@ interface PublicSectionsDivProps {
 
 const PublicSectionsDiv = ({ children, className }: PublicSectionsDivProps) => {
     return (
-        <div className={`w-full py-4 px-5 gap-2 min-h-screen flex flex-col ${className}`}>
+        <div className={`w-full py-7 gap-2 min-h-screen px-10 flex flex-col ${className}`}>
            {children}
         </div>
     )
