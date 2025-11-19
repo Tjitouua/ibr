@@ -10,7 +10,7 @@ interface ProgramCardProps {
 
 const ProgramsCard: React.FC<ProgramCardProps> = ({ name, desc, amount, beneficiaries }) => {
     return (
-        <div className="w-full md:w-[32%] py-6 mb-5 gap-1 flex flex-col px-4 rounded-md hover:bg-gray-50">
+        <div className="w-full md:w-[32%] bg-gray-100 py-6 mb-5 gap-1 flex flex-col px-4 hover:bg-gray-200">
            <label className="text-md font-semibold">{name}</label>
            <label className="text-sm text-gray-500">{desc}</label>
            <div className="w-full py-2 flex justify-between items-center border-t border-gray-400 mt-3">
