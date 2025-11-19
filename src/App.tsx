@@ -15,12 +15,14 @@ import PublicOverview from './pages/PublicOverview'
 import PublicEnrolment from './pages/PublicEnrolment'
 import PublicBenefits from './pages/PublicBenefits'
 import PublicExits from './pages/PublicExits'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
