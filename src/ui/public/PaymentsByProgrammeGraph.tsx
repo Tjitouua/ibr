@@ -14,12 +14,12 @@ const PaymentsByProgrammeGraph = () => {
        { name: "Old Age Grant", value: 223434, amount: 16520400 },
        { name: "Street Committee Member", value: 11100, amount: 16520400 },
        { name: "Assistant Teachers", value: 22900, amount: 16520400 },
-       { name: "Casual Workers", value: 22900, amount: 16520400 },
-       { name: "Cooks", value: 22900, amount: 16520400 },
-       { name: "Coordinator", value: 22900, amount: 16520400 },
+       { name: "Casual Workers", value: 17000, amount: 11520400 },
+       { name: "Cooks", value: 21400, amount: 1320400 },
+       { name: "Coordinator", value: 12865, amount: 13520400 },
     ];
 
-    const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF"];
+    const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF", "#1D968B", "#080707", "#AB225B"];
 
 
      return (    
