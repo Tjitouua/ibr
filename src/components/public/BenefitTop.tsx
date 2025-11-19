@@ -2,6 +2,7 @@ import { FiUsers } from "react-icons/fi";
 
 import { PiMoneyWavyBold } from "react-icons/pi";
 import BenefitStatCard from "../../ui/public/BenefitStatCard";
+import { FaRegFileAlt } from "react-icons/fa";
 // import { title } from "process";
 
 
@@ -16,7 +17,7 @@ const BenefitTop: React.FC = () => {
           },
           {
             title: "Social Programs",
-            icon:  <PiMoneyWavyBold />,
+            icon:  <FaRegFileAlt />,
             value: "6 Programs",
             trend: "Across all benefit categories",
           },
