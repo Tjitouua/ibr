@@ -4,7 +4,7 @@ const BenefitsBottomPart = () => {
     return (
         <div className="w-full flex justify-between flex-wrap items-start min-h-10 py-2">
             {/* First Div  */}
-            <div className="w-full md:w-[49%] py-7 px-5 rounded  flex flex-col gap-2 ">
+            <div className="w-full min-h-85 md:w-[49%] border border-gray-300 py-7 px-5 rounded  flex flex-col gap-2 ">
                 <label className="text-xl font-semibold">Payment Schedule</label>
                 <div className="w-full py-1 pl-13">
                     <li className="marker:text-2xl marker:text-blue-500 font-bold">Monthly Disbursements</li>
@@ -23,7 +23,7 @@ const BenefitsBottomPart = () => {
             </div>
 
             {/* Second Div  */}
-            <div className="w-full md:w-[49%] py-7 px-5 rounded flex flex-col gap-6">
+            <div className="w-full min-h-85 md:w-[49%] border border-gray-300 py-7 px-5 rounded flex flex-col gap-6">
                 <label className="text-xl font-semibold">Impact Highlights</label>
                 <div className="w-full flex gap-5 justify-start items-center">
                     <div className="w-1 h-14 bg-red-700"></div>
