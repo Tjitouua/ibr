@@ -57,7 +57,7 @@ const Functions: React.FC = () => {
 
 
     return (
-       <div className="w-full py-5 px-5 max-w-400 flex flex-col gap-3 justify-center items-center">
+       <div className="w-full py-5 px-5 flex flex-col gap-3 justify-center items-center">
            <label className="text-3xl font-bold text-black">Core Functions</label>
            <div className="flex w-full justify-center xl:justify-between gap-3 items-center flex-wrap py-4">
             {functionList.map((func, index) => (

@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutPart = () => {
       return (
-         <div className="w-full min-h-100 max-w-400 flex px-5 py-17 gap-8 flex-col xl:flex-row justify-between">
+         <div className="w-full min-h-100 flex px-5 py-17 gap-8 flex-col xl:flex-row justify-between">
              {/* Info Div  */}
              <div className="py-2 flex flex-col gap-3 w-full xl:w-1/2">
                  <label className="text-3xl font-bold text-black">What is the CBMIS System?</label>

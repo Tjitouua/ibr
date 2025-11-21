@@ -16,6 +16,7 @@ import PublicEnrolment from './pages/PublicEnrolment'
 import PublicBenefits from './pages/PublicBenefits'
 import PublicExits from './pages/PublicExits'
 import ScrollToTop from './components/ScrollToTop'
+import AboutUs from './pages/AboutUs'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,7 +30,6 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/beneficiaries" element={<Beneficiaries />} />
           <Route path="/payments" element={<Payments />} />
-          {/* <Route path="/reports" element={<Reports />} /> */}
           <Route path="/programs" element={<Programs />}/>
           <Route path="/exits" element={<Exits />}/>
           {/* Public Side  */}
@@ -37,6 +37,7 @@ function App() {
           <Route path="/public_enrolment" element={<PublicEnrolment />} />
           <Route path="/public_benefits" element={<PublicBenefits />} />
           <Route path="/public_exits" element={<PublicExits />} />
+          <Route path="/about_us" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   )
