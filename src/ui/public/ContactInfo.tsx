@@ -1,5 +1,4 @@
 import { HiOutlineMail } from "react-icons/hi";
-import ContactInfoCard from "./ContactInfoCard";
 import { FiPhone } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoMdTime } from "react-icons/io";
@@ -9,7 +8,7 @@ import { IoMdTime } from "react-icons/io";
 const ContactInfo = () => {
    return (
       <div className="w-full py-8 px-6 rounded-md border gap-2 flex flex-col border-gray-300">
-        <label className="font-bold text-lg">Contact Information</label>
+        <label className="font-bold text-xl">Contact Information</label>
         <div className="w-full py-2 flex gap-2 items-start">
            <HiOutlineMail className="text-2xl text-gray-500" />
            <div className="flex flex-col  py-0">

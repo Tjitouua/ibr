@@ -1,6 +1,8 @@
 import ContactInfo from "../../ui/public/ContactInfo";
 import ContactUsForm from "../../ui/public/ContactUsForm";
 import PublicSectionsDiv from "../../ui/public/PublicSectionsDiv";
+import RegionalOffices from "../../ui/public/RegionalOffices";
+import FAQs from "./FAQs";
 
 
 
@@ -11,10 +13,12 @@ const AboutUsSection = () => {
             <label className="text-gray-600">Get in touch with our team for any inquiries or support</label>
             <div className="w-full flex-wrap min-h-20 flex gap-5 justify-between items-start py-6">
                 <ContactUsForm />
-                <div className="w-full lg:w-[35%] flex flex-col">
+                <div className="w-full lg:w-[35%] flex flex-col gap-4">
                     <ContactInfo />
+                    <RegionalOffices />
                 </div>
             </div>
+            <FAQs />
         </PublicSectionsDiv>
      );
 }
