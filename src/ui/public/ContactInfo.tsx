@@ -30,7 +30,7 @@ const ContactInfo = () => {
            <IoLocationOutline className="text-2xl text-gray-500" />
            <div className="flex flex-col  py-0">
               <label className="font-bold">Address</label>
-              <label className="text-sm max-w-60 text-gray-500">Ministry of Gender Equality, Poverty Eradication & Social Welfare <br /> Private Bag 13359 <br /> Windhoek, Namibia</label>
+              <label className="text-sm text-gray-500">Ministry of Gender Equality, Poverty Eradication & Social Welfare <br /> Private Bag 13359 <br /> Windhoek, Namibia</label>
            </div>
         </div>
 

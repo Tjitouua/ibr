@@ -2,7 +2,7 @@
 
 const ContactUsForm = () => {
      return (
-        <div className="w-full lg:w-[69%] py-8 px-6 border border-gray-300 rounded-md flex flex-col gap-2">
+        <div className="w-full lg:w-[63%] py-8 px-6 border border-gray-300 rounded-md flex flex-col gap-2">
             <label className="font-bold text-lg">Send us a Message</label>
             <label className="text-sm text-gray-400">Fill out the form below and we'll respond within 24 hours</label>
 
