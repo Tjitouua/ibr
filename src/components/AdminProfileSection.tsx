@@ -7,6 +7,8 @@ import GraphsDiv from './GraphsDiv';
 import ScheduleDiv from './ScheduleDiv';
 import { FaRegCopy } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
+import ProfileInformationPart from './public/ProfileInformationPart';
+import ProfilePasswordPart from './public/ProfilePasswordPart';
 
 const AdminProfileSection = () => {
      return (
@@ -37,8 +39,9 @@ const AdminProfileSection = () => {
                    </div>
                 </div>
 
-                <div className="w-[70%] py-3 border border-gray-400 rounded-xl">
-
+                <div className="w-[70%] flex flex-col gap-4">
+                    <ProfileInformationPart />
+                    <ProfilePasswordPart />
                 </div>
             </div>
 
