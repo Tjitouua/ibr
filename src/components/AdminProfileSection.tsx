@@ -17,14 +17,14 @@ const AdminProfileSection = () => {
 
 
      return (
-        <div className="flex flex-col gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-180">
+        <div className="flex flex-col flex-wrap gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-180">
             <div className="flex flex-col w-full">
             <DashboardTitles title='Profile' />
             <DashboardDesc desc='View and manage your IBR account details' />
             </div>
 
-            <div className="flex w-full justify-between items-top">
-                <div className="w-[30%] flex flex-col gap-3 py-3 items-center">
+            <div className="flex-col lg:flex-row flex w-full justify-between items-top">
+                <div className="w-full lg:w-[30%] flex flex-col gap-5 py-3 pl-4">
                    <div className="w-25 rounded-full flex justify-center items-center h-25 border-2 border-gray-400">
                       <img src="/images/spilloo.jpg" className="w-full h-full rounded-full" />
                       {/* <FaUserAlt className="text-5xl" /> */}
@@ -49,7 +49,7 @@ const AdminProfileSection = () => {
                       </div>
                 </div>
 
-                <div className="w-[70%] flex flex-col gap-4">
+                <div className="w-full lg:w-[70%] flex flex-col gap-4">
                     <ProfileInformationPart />
                     <ProfilePasswordPart />
                 </div>
