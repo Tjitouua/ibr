@@ -17,6 +17,7 @@ import PublicBenefits from './pages/PublicBenefits'
 import PublicExits from './pages/PublicExits'
 import ScrollToTop from './components/ScrollToTop'
 import AboutUs from './pages/AboutUs'
+import AdminProfile from './pages/AdminProfile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,6 +39,7 @@ function App() {
           <Route path="/public_benefits" element={<PublicBenefits />} />
           <Route path="/public_exits" element={<PublicExits />} />
           <Route path="/about_us" element={<AboutUs />} />
+          <Route path="/admin_profile" element={<AdminProfile />} />
       </Routes>
     </BrowserRouter>
   )

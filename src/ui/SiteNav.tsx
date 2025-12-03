@@ -11,6 +11,7 @@ import { IoLayers } from "react-icons/io5";
 import { GiExitDoor } from "react-icons/gi";
 import { ImExit } from "react-icons/im";
 import { FaClipboardList } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 const SideNav: React.FC = () => {
 
@@ -35,16 +36,16 @@ const SideNav: React.FC = () => {
             nav: "Exits",
             path: "/exits",
         },
-                {
+        {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
             path: "/payments",
         },
-        // {
-            // icon: <FaClipboardList />,
-            // nav: "Enrollments",
-            // path: "/reports",
-        // },
+        {
+            icon: <FaUser />,
+            nav: "Profile",
+            path: "/admin_profile",
+        },
         // {
             // icon: <BsGraphUpArrow />,
             // nav: "Reports",

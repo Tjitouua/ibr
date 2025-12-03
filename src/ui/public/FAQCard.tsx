@@ -17,3 +17,6 @@ const FAQCard: React.FC<FAQCardProps> = ({ title, desc }) => {
 }
 
 export default FAQCard;
+
+
+

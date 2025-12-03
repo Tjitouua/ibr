@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
@@ -8,6 +8,36 @@ import { Link, useNavigate } from 'react-router-dom';
 const LoginForm = () => {
 
     const navigate = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+
+
+    const handleLogin = () => {
+
+        let valid = true;
+
+         setEmailError("");
+         setPasswordError("");
+
+         if (!email) {
+            setEmailError("Please enter your email.");
+            valid=false;
+         }
+
+         if (!password) {
+           setPasswordError("Please enter your password.");
+           valid=false;
+         }
+
+         if (!valid) return;
+
+         navigate('/dashboard')
+    }
+
 
 
     return (
@@ -31,15 +61,19 @@ const LoginForm = () => {
                <label>Email Address</label>
                <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                 <MdOutlineEmail className="text-lg" />
-               <input type="text" placeholder="Username" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
+               <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Username" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
                </div>
+
+               {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
 
                {/* Password Div  */}
               <label>Password</label>
                <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                 <MdLockOutline className="text-lg" />
-               <input type="text" placeholder="Password" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
+               <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
                </div>
+
+               {passwordError && <p className="text-red-600 text-xs">{passwordError}</p>}
 
                {/* Forgot Password  */}
                <div className="w-full flex gap-20 justify-between items-center">
@@ -57,7 +91,7 @@ const LoginForm = () => {
             </div>
             
                {/* Button  */}
-               <button onClick={() => navigate('/dashboard')} className="rounded-md flex 
+               <button onClick={handleLogin} className="rounded-md flex 
                items-center justify-center bg-blue-500
                 w-full py-2 text-white cursor-pointer 
                 hover:bg-transparent hover:text-black hover:border hover:bg-gray-500">Login</button>
