@@ -24,16 +24,17 @@ const AdminProfileSection = () => {
             </div>
 
             <div className="flex-col lg:flex-row flex w-full justify-between items-top">
-                <div className="w-full lg:w-[30%] flex flex-col gap-5 py-3 pl-4">
+                <div className="w-full lg:w-[30%] flex flex-col gap-4 py-3 items-center">
                    <div className="w-25 rounded-full flex justify-center items-center h-25 border-2 border-gray-400">
                       <img src="/images/spilloo.jpg" className="w-full h-full rounded-full" />
                       {/* <FaUserAlt className="text-5xl" /> */}
                    </div>
+                   <label className="font-bold text-gray-500">Admin</label>
                    <label className="font-bold">veriimapoha@gmail.com</label>
                    {/* User ID Div  */}
                    <div className="flex gap-2">
-                      <div className="py-1 px-3 bg-gray-100 flex justify-center items-center border border-gray-500 rounded-xl text-sm">
-                         <label className="text-black"><span className="font-semibold mr-2 text-gray-600">User ID:</span> iuhdfnc20349</label>
+                      <div className="py-1 px-5 bg-gray-100 flex justify-center items-center border border-gray-500 rounded-xl text-sm">
+                         <label className="text-black"><span className="font-semibold mr-2 text-gray-600">User ID:</span> 5687920349</label>
                       </div>
                       <div className="py-1 px-3 bg-gray-100 cursor-pointer flex justify-center items-center border border-gray-500 rounded-xl text-sm">
                          <label className="text-[11px] font-bold">Copy</label>
