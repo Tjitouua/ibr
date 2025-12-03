@@ -2,17 +2,22 @@ import React from 'react'
 import BigCard from '../ui/BigCard';
 import DashboardTitles from '../ui/DashboardTitles';
 import DashboardDesc from '../ui/DashboardDesc';
-import DashboardTop from './DashboardTop';
-import GraphsDiv from './GraphsDiv';
-import ScheduleDiv from './ScheduleDiv';
-import { FaRegCopy } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
 import ProfileInformationPart from './public/ProfileInformationPart';
 import ProfilePasswordPart from './public/ProfilePasswordPart';
+import { IoLogOut } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const AdminProfileSection = () => {
+
+   const navigate = useNavigate();
+
+   const handleLogout = () => {
+      navigate("/login");
+   }
+
+
      return (
-        <div className="flex flex-col gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-200">
+        <div className="flex flex-col gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-180">
             <div className="flex flex-col w-full">
             <DashboardTitles title='Profile' />
             <DashboardDesc desc='View and manage your IBR account details' />
@@ -37,6 +42,11 @@ const AdminProfileSection = () => {
 
                       </div>
                    </div>
+                   {/* Logout  */}
+                   <div onClick={handleLogout} className="flex gap-3 items-center text-red-600 hover:text-black cursor-pointer">
+                         <IoLogOut className="text-lg" />
+                         <label className="font-semibold cursor-pointer">Logout</label>
+                      </div>
                 </div>
 
                 <div className="w-[70%] flex flex-col gap-4">
