@@ -42,6 +42,11 @@ const SideNav: React.FC = () => {
             path: "/payments",
         },
         {
+            icon: <BiSolidMessageRoundedError />,
+            nav: "Grievances",
+            path: "/grievances",
+        },
+        {
             icon: <FaUser />,
             nav: "Profile",
             path: "/admin_profile",

@@ -10,8 +10,9 @@ import ExitsList from "./ExitsList";
 
 const ExitsListDiv = () => {
      return (
-        <AdminSideCard>
-            {/* Top part  */}
+      //   <AdminSideCard className="px-1">
+            
+        <div className="w-full min-h-150 py-3 flex flex-col gap-3">
         <div className="w-full flex justify-between items-center">
         <div className="flex flex-col w-full">
            <DashboardTitles title='Exited Beneficiaries' />
@@ -21,7 +22,8 @@ const ExitsListDiv = () => {
         </div>
         <ExitsList />
         {/* <BeneficiariesList /> */}
-        </AdminSideCard>
+        </div>
+      //   </AdminSideCard>
      );
 }
 

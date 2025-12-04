@@ -9,18 +9,21 @@ import ProgramsTop from './ProgramsTop';
 import Program from '../ui/Program';
 import ProgramsDiv from './ProgramsDiv';
 import GrievancesTop from './GrievancesTop';
+import ExitsListDiv from './ExitsListDiv';
 
-const ProgramsSection = () => {
+const GrievancesSection = () => {
      return (
         <div className="flex flex-col gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-200">
             <div className="flex flex-col w-full">
-            <DashboardTitles title='Grant Programs' />
-            <DashboardDesc desc='Manage and monitor grant programs' />
+            <DashboardTitles title='Grievances Management' />
+            <DashboardDesc desc='Track and resolve beneficiary complaints' />
             </div>
 
-            <ProgramsTop />
+            <GrievancesTop />
 
-            <ProgramsDiv />
+            <ExitsListDiv />
+
+            {/* <ProgramsDiv /> */}
 
             {/* <GraphsDiv /> */}
             {/* <ScheduleDiv /> */}
@@ -29,4 +32,4 @@ const ProgramsSection = () => {
      );
 }
 
-export default ProgramsSection;
+export default GrievancesSection;

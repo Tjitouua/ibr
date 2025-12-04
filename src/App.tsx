@@ -18,6 +18,7 @@ import PublicExits from './pages/PublicExits'
 import ScrollToTop from './components/ScrollToTop'
 import AboutUs from './pages/AboutUs'
 import AdminProfile from './pages/AdminProfile'
+import Grievances from './pages/Grievances'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +41,7 @@ function App() {
           <Route path="/public_exits" element={<PublicExits />} />
           <Route path="/about_us" element={<AboutUs />} />
           <Route path="/admin_profile" element={<AdminProfile />} />
+          <Route path="/grievances" element={<Grievances />} />
       </Routes>
     </BrowserRouter>
   )
