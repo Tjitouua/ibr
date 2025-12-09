@@ -24,7 +24,7 @@ const AdminProfileSection = () => {
             </div>
 
             <div className="flex-col lg:flex-row flex w-full justify-between items-top">
-                <div className="w-full lg:w-[30%] flex flex-col gap-4 py-3 pl-5">
+                <div className="w-full lg:w-[30%] flex flex-col gap-4 py-3 pl-5 items-center">
                    <div className="w-25 rounded-full flex justify-center items-center h-25 border-2 border-gray-400">
                       <img src="/images/spilloo.jpg" className="w-full h-full rounded-full" />
                       {/* <FaUserAlt className="text-5xl" /> */}
