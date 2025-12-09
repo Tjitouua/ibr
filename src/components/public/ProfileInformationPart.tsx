@@ -2,7 +2,7 @@
 
 const ProfileInformationPart = () => {
      return (
-        <div className="w-full py-5 px-8 border flex flex-col gap-1 border-gray-400 rounded-xl">
+        <div className="w-full py-5 px-8 border flex flex-col gap-1 border-gray-300">
             <label className="font-bold text-lg">Personal Information</label>
             {/* First Name & Last Name  */}
             <div className="flex justify-between gap-5 py-2 items-center">

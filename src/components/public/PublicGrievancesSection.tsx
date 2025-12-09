@@ -24,6 +24,13 @@ const PublicGrievancesSection = () => {
                        {/* Button  */}
                        <button className="bg-black text-white rounded-sm gap-3 px-2 py-3 flex justify-center items-center hover:bg-black/70 cursor-pointer w-full mt-3">Verify Status <FaSearch /></button>
                     </div>
+
+
+                    <div className="w-full py-8 px-6 rounded-md border gap-2 flex flex-col border-gray-300">
+
+                    </div>
+
+
                 </div>
             </div>
         </PublicSectionsDiv>
