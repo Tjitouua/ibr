@@ -19,6 +19,7 @@ import ScrollToTop from './components/ScrollToTop'
 import AboutUs from './pages/AboutUs'
 import AdminProfile from './pages/AdminProfile'
 import Grievances from './pages/Grievances'
+import PublicGrievances from './pages/PublicGrievances'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,6 +43,7 @@ function App() {
           <Route path="/about_us" element={<AboutUs />} />
           <Route path="/admin_profile" element={<AdminProfile />} />
           <Route path="/grievances" element={<Grievances />} />
+          <Route path="/public_grievances" element={<PublicGrievances />} />
       </Routes>
     </BrowserRouter>
   )

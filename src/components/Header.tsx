@@ -52,7 +52,7 @@ const Header = () => {
                         <Link to="/public_enrolment">Enrollment</Link>
                         <Link to="/public_benefits">Benefits</Link>
                         <Link to="/public_exits">Exits</Link>
-                        <Link to="#">Publication</Link>
+                        <Link to="/public_grievances">Complaints</Link>
                         <Link to="/about_us">Contact Us</Link>
                     </ul>
                 </nav>
@@ -81,7 +81,7 @@ const Header = () => {
                  <Link to="/public_enrolment">Enrollment</Link>
                  <Link to="/public_benefits">Benefits</Link>
                  <Link to="/public_exits">Exits</Link>
-                 <Link to="#">Publication</Link>
+                 <Link to="/public_grievances">Complaints</Link>
                  <Link to="/about_us">Contact Us</Link>
                  <button onClick={() => navigate('/login')} className="px-4 w-full flex justify-center items-center rounded-sm cursor-pointer hover:bg-transparent hover:border hover:text-black hover:border-black py-1 bg-blue-500 text-white">Login</button>
             </div>
