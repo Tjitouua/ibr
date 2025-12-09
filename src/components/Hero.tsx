@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
      return (
        <div className="w-full bg-[url('/images/hero.jpeg')] bg-center bg-cover min-h-screen">
           <div className="w-full min-h-screen bg-gradient-to-r from-black/95 via-black/80 to-transparent text-white gap-7 flex flex-col px-10 justify-center">
@@ -12,8 +16,8 @@ const Hero = () => {
                from Namibia’s social protection programs in one place. It helps the government deliver services more
                 smoothly, keeps things transparent, and provides useful insights to make better decisions for everyone.</label>
               <div className="flex gap-4 items-center justify-start">
-                 <button className="px-10 py-2 bg-white rounded-md text-black font-bold cursor-pointer hover:border hover:border-white hover:bg-transparent hover:text-white">Learn More</button>
-                 <button className="px-10 py-2 bg-white rounded-md text-black font-bold cursor-pointer hover:border hover:border-white hover:bg-transparent hover:text-white">View Functions</button>
+                 <button onClick={() => navigate("/public_grievances")} className="px-8 py-2 bg-white rounded-md text-black font-bold cursor-pointer hover:border hover:border-white hover:bg-transparent hover:text-white">Make a Complaint</button>
+                 <button onClick={() => navigate("/public_grievances")} className="px-8 py-2 bg-white rounded-md text-black font-bold cursor-pointer hover:border hover:border-white hover:bg-transparent hover:text-white">Check Beneficiary Status</button>
               </div>
           </div>
        </div>

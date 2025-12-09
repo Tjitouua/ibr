@@ -4,7 +4,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoLayers, IoMenu } from "react-icons/io5";
 
 // import Navigation from './Navigation';
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUser } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import { FaMoneyBill1 } from "react-icons/fa6";
 import { BsGraphUpArrow } from "react-icons/bs";
@@ -47,6 +47,16 @@ const AdminHeader: React.FC = () => {
             icon: <FaMoneyBill1 />,
             nav: "Payments",
             path: "/payments",
+        },
+        {
+            icon: <BiSolidMessageRoundedError />,
+            nav: "Grievances",
+            path: "/grievances",
+        },
+        {
+            icon: <FaUser />,
+            nav: "Profile",
+            path: "/admin_profile",
         },
     ];
 

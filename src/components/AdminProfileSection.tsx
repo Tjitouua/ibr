@@ -17,15 +17,15 @@ const AdminProfileSection = () => {
 
 
      return (
-        <div className="flex flex-col flex-wrap gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-180">
+        <div className="flex flex-col flex-wrap gap-5 px-1 sm:px-5 py-3 justify-start w-full min-h-150">
             <div className="flex flex-col w-full">
             <DashboardTitles title='Profile' />
             <DashboardDesc desc='View and manage your IBR account details' />
             </div>
 
-            <div className="flex-col lg:flex-row flex w-full justify-between items-top gap-5">
+            <div className="flex-col lg:flex-row flex mb-40 w-full justify-between items-top gap-5">
             <div className="w-full lg:w-[30%]">
-                <div className="w-full flex min-h-10 bg-white flex-col gap-3 py-7 mb-5 shadow-lg pl-10 shadow-black/10">
+                <div className="w-full flex min-h-10 shadow-md flex-col gap-3 py-7 mb-5 pl-10">
                    <div className="w-25 flex justify-center items-center h-25">
                       <img src="/images/spilloo.jpg" className="w-full h-full" />
                       {/* <FaUserAlt className="text-5xl" /> */}
