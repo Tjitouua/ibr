@@ -23,8 +23,9 @@ const AdminProfileSection = () => {
             <DashboardDesc desc='View and manage your IBR account details' />
             </div>
 
-            <div className="flex-col lg:flex-row flex w-full justify-between items-top">
-                <div className="w-full lg:w-[30%] flex flex-col gap-4 py-3 pl-5 items-center">
+            <div className="flex-col lg:flex-row flex w-full justify-between items-top gap-5">
+            <div className="w-full lg:w-[30%]">
+                <div className="w-full flex min-h-10 flex-col gap-3 py-8 mb-5 shadow-lg items-center shadow-black/30">
                    <div className="w-25 rounded-full flex justify-center items-center h-25 border-2 border-gray-400">
                       <img src="/images/spilloo.jpg" className="w-full h-full rounded-full" />
                       {/* <FaUserAlt className="text-5xl" /> */}
@@ -49,11 +50,13 @@ const AdminProfileSection = () => {
                          <label className="font-semibold cursor-pointer">Logout</label>
                       </div>
                 </div>
+                </div>
 
-                <div className="w-full lg:w-[70%] flex flex-col gap-4">
+                <div className="w-full lg:w-[70%] flex flex-col gap-6">
                     <ProfileInformationPart />
                     <ProfilePasswordPart />
                 </div>
+
             </div>
 
         </div>
