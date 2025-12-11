@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import GrievancesForm from "../../ui/public/GrievancesForm";
 import PublicSectionsDiv from "../../ui/public/PublicSectionsDiv";
+import StatusCard from "../../ui/public/StatusCard";
 
 
 
@@ -26,9 +27,7 @@ const PublicGrievancesSection = () => {
                     </div>
 
 
-                    <div className="w-full py-8 px-6 rounded-md border gap-2 flex flex-col border-gray-300">
-
-                    </div>
+                   <StatusCard />
 
 
                 </div>
