@@ -14,9 +14,6 @@ interface Props {
     searchQuery:string;
     exitfilters: {
         Reason: string;
-        // Gender: string;
-        // Program: string;
-        // Status: string;
     }
 }
 
@@ -61,11 +58,6 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
 
       const matchesFilters = 
       (!exitfilters.Reason || b.reason.toLowerCase() === exitfilters.Reason.toLowerCase())
-    //   (!filters.Region || b.region.toLowerCase() === filters.Region.toLowerCase()) &&
-    //   (!filters.Gender || b.gender.toLowerCase() === filters.Gender.toLowerCase()) &&
-    //   (!filters.Program || b.program.toLowerCase() === filters.Program.toLowerCase()) &&
-    //   (!filters.Status || b.status.toLowerCase() === filters.Status.toLowerCase());
-
       return matchesSearch && matchesFilters;
    });
 
@@ -76,8 +68,6 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-blue-600/70 text-white";
             case "Expired Grant":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-red-700/70 text-white";
-            // case "Pending":
-                // return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
          }
    }
 
@@ -87,7 +77,7 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
 
     return (
     <div className="flex flex-col gap-1 w-full">
-        <label className="text-[14px] text-gray-400">Showing {filteredData.length} of {beneficiaries.length} beneficiaries</label>
+        <label className="text-[14px] text-gray-400">Showing {filteredData.length} of {beneficiaries.length} exits</label>
     <table className="text-sm text-gray-500 bg-white">
         <thead className="border-b border-gray-300 bg-white">
             <tr>

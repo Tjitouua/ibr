@@ -10,6 +10,7 @@ import Program from '../ui/Program';
 import ProgramsDiv from './ProgramsDiv';
 import GrievancesTop from './GrievancesTop';
 import ExitsListDiv from './ExitsListDiv';
+import GrievancesListDiv from './GrievancesListDiv';
 
 const GrievancesSection = () => {
      return (
@@ -21,7 +22,7 @@ const GrievancesSection = () => {
 
             <GrievancesTop />
 
-            <ExitsListDiv />
+            <GrievancesListDiv />
 
             {/* <ProgramsDiv /> */}
 

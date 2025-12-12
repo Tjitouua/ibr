@@ -20,7 +20,7 @@ const StatusCard = () => {
 
 
              {/* Content Div  */}
-             <div className="min-h-30 py-8 px-6 flex flex-col gap-5 text-black/80">
+             <div className="min-h-30 py-8 px-7 flex flex-col gap-5 text-black/80">
 
               {/* Status Part  */}
                 <div className="w-full flex gap-3 items-center">

@@ -1,0 +1,28 @@
+import { Link } from "react-router-dom";
+import DashboardDesc from "../ui/DashboardDesc";
+import DashboardTitles from "../ui/DashboardTitles";
+import ExitsList from "./ExitsList";
+import GrievancesList from "./GrievancesList";
+
+
+
+const GrievancesListDiv = () => {
+     return (
+      //   <AdminSideCard className="px-1">
+            
+        <div className="w-full min-h-150 py-3 flex flex-col gap-3">
+        <div className="w-full flex justify-between items-center">
+        <div className="flex flex-col w-full">
+           <DashboardTitles title='Complaints' />
+           <DashboardDesc desc='View and track complaints related to beneficiary services' />
+        </div>
+        {/* <Link className="flex bg-blue-500 text-white px-3 py-3 justify-center items-center w-50 rounded-lg hover:bg-blue-400" to="#" ><IoMdAdd /> Add Beneficiary</Link> */}
+        </div>
+        <GrievancesList />
+        
+        </div>
+      //   </AdminSideCard>
+     );
+}
+
+export default GrievancesListDiv;
