@@ -41,7 +41,7 @@ const LoginForm = () => {
 
 
     return (
-        <div className="min-h-100 py-13 w-full flex justify-center items-center">
+        <div className="min-h-screen py-13 w-full flex justify-center items-center">
                     
         <div className="px-6 py-15 flex flex-col border border-gray-200 items-center text-gray-800 gap-5 rounded-sm bg-white shadow-lg">
             {/* User icon  */}
