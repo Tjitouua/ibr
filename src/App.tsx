@@ -20,6 +20,7 @@ import AboutUs from './pages/AboutUs'
 import AdminProfile from './pages/AdminProfile'
 import Grievances from './pages/Grievances'
 import PublicGrievances from './pages/PublicGrievances'
+import NewBeneficiary from './pages/NewBeneficiary'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
     <BrowserRouter>
     <ScrollToTop />
       <Routes>
+        {/* Admin Side  */}
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -35,6 +37,7 @@ function App() {
           <Route path="/payments" element={<Payments />} />
           <Route path="/programs" element={<Programs />}/>
           <Route path="/exits" element={<Exits />}/>
+          <Route path="/new_beneficiary" element={<NewBeneficiary />} />
           {/* Public Side  */}
           <Route path="/public_overview" element={<PublicOverview />} />
           <Route path="/public_enrolment" element={<PublicEnrolment />} />
