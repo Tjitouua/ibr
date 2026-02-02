@@ -1,17 +1,57 @@
 
+import { useEffect, useState } from "react";
 import Graphs from "../ui/Graphs";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, type PieLabelRenderProps } from "recharts";
 
 
+interface GenderAPIResponse {
+    total_enrollments: string;
+    males: string;
+    females: string;
+};
+
+interface GenderChartData {
+    name: string;
+    value: number;
+};
+
+
 
 const GenderGraph = () => {
+  const [genderData, setGenderData] = useState<GenderChartData[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  /*
     const genderData = [
        { name: "Male", value: 900 },
        { name: "Female", value: 1100 },
     ];
+    */
 
     const COLORS = ["#36454F", "#1434A4"];
+    useEffect (() => {
+      fetch("http://localhost/backend_ibr/getDashboardStats.php")
+      .then(res => res.json())
+      .then((data: GenderAPIResponse) => {
+          setGenderData([
+             { name: "Male", value: Number(data.males) },
+             { name: "Female", value: Number(data.females) }
+          ]);
+          setLoading(false);
+      })
+      .catch(err => {
+          console.error("Failed to fetch gender data: ", err);
+          setLoading(false);
+      });
+    }, []);
+
+    if(loading) {
+       return <p className="text-xs">Loading gender data...</p>
+    }
+
+    if(genderData.length === 0) {
+       return <p className="text-xs">No gender data available</p>
+    }
 
 
      return (    

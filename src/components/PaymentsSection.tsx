@@ -19,7 +19,7 @@ const PaymentsSection = () => {
            <DashboardTitles title='Payment History' />
            <DashboardDesc desc='View payment records by month' />
         </div>
-        {/* <Link className="flex bg-blue-500 text-white px-3 py-3 justify-center items-center w-50 rounded-lg hover:bg-blue-400" to="#" ><IoMdAdd /> Add Beneficiary</Link> */}
+        {/* <Link className="flex bg-blue-500 text-white px-3 py-3 justify-center items-center gap-3 w-50 rounded-lg hover:bg-blue-400" to="#" ><IoMdAdd /> Add Payment</Link> */}
         </div>
         <PaymentFilter />
         <PaymentSummary />

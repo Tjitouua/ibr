@@ -70,8 +70,8 @@ const BeneficiariesList: React.FC = () => {
          name: "Status",
          options: [
            { label: "Active", value: "Active" },
-           { label: "Pending", value: "Pending" },
-           { label: "Inactive", value: "Inactive" },
+          //  { label: "Pending", value: "Pending" },
+           { label: "Exit", value: "Exit" },
          ],
        },
     ];

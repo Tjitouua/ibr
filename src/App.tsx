@@ -38,6 +38,7 @@ function App() {
           <Route path="/programs" element={<Programs />}/>
           <Route path="/exits" element={<Exits />}/>
           <Route path="/new_beneficiary" element={<NewBeneficiary />} />
+          <Route path="/new_beneficiary/:id" element={<NewBeneficiary />} />
           {/* Public Side  */}
           <Route path="/public_overview" element={<PublicOverview />} />
           <Route path="/public_enrolment" element={<PublicEnrolment />} />

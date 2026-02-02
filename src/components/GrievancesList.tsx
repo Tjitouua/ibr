@@ -78,10 +78,6 @@ const GrievancesList: React.FC = () => {
 
 
 
-
-
-
-
             {/* Table  */}
             <GrievancesTable searchQuery={searchQuery} grievancesfilters={selectedFilters} />
         </div>

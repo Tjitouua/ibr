@@ -4,8 +4,24 @@ import { FiUser } from "react-icons/fi";
 import { LuLayers } from "react-icons/lu";
 import { GrLocation } from "react-icons/gr";
 import { BiCreditCard } from "react-icons/bi";
+import { PiDressBold } from "react-icons/pi";
 
-const StatusCard = () => {
+const StatusCard = ({result}: any) => {
+
+   if(!result.found) {
+      return (
+         <div className="w-full py-3 flex items-center justify-center text-gray-500">
+            <label>Beneficiary not found</label>
+         </div>
+      );
+   }
+
+
+   const d = result.data;
+
+
+
+
       return (
         <div className="w-full min-h-70 border gap-2 flex flex-col border-gray-300">
 
@@ -38,7 +54,7 @@ const StatusCard = () => {
                    <FiUser className="text-xl text-gray-500" />
                    <div className="flex flex-col">
                       <label className="text-sm text-gray-500">Name</label>
-                      <label className="font-bold">James Hafeni</label>
+                      <label className="font-bold">{d.name}</label>
                    </div>
               </div>
 
@@ -47,26 +63,26 @@ const StatusCard = () => {
                    <LuLayers className="text-xl text-gray-500" />
                    <div className="flex flex-col">
                       <label className="text-sm text-gray-500">Program</label>
-                      <label className="font-bold">Old Age Grant</label>
+                      <label className="font-bold">{d.program}</label>
                    </div>
               </div>
 
               {/* Status And Region Part  */}
-              <div className="w-full flex gap-3 items-center justify-between">
-                 {/* Staus Part  */}
+              <div className="w-full flex gap-3 items-center justify-between">  
+              {/* Gender Part  */}
+              <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
+                   <PiDressBold className="text-xl text-gray-500" />
+                   <div className="flex flex-col">
+                      <label className="text-sm text-gray-500">Gender</label>
+                      <label className="font-bold">{d.gender}</label>
+                   </div>
+              </div>
+               {/* Staus Part  */}
               <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
                    <CgDanger className="text-xl text-gray-500" />
                    <div className="flex flex-col">
                       <label className="text-sm text-gray-500">Status</label>
-                      <label className="font-bold text-green-600">Active</label>
-                   </div>
-              </div>
-              {/* Region Part  */}
-              <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
-                   <GrLocation className="text-xl text-gray-500" />
-                   <div className="flex flex-col">
-                      <label className="text-sm text-gray-500">Region</label>
-                      <label className="font-bold">Khomas</label>
+                      <label className="font-bold text-green-600">{d.status}</label>
                    </div>
               </div>
               </div>
@@ -75,20 +91,20 @@ const StatusCard = () => {
 
               {/* Enrollment Date And Payment Part  */}
               <div className="w-full flex gap-3 items-center justify-between">
-                 {/* Staus Part  */}
+              {/* Region Part  */}
+              <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
+                   <GrLocation className="text-xl text-gray-500" />
+                   <div className="flex flex-col">
+                      <label className="text-sm text-gray-500">Region</label>
+                      <label className="font-bold">{d.region}</label>
+                   </div>
+              </div>
+                 {/* Enrollment Part  */}
               <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
                    <CgDanger className="text-xl text-gray-500" />
                    <div className="flex flex-col">
                       <label className="text-sm text-gray-500">Enrollment Date</label>
                       <label className="font-bold">2022-07-21</label>
-                   </div>
-              </div>
-              {/* Region Part  */}
-              <div className="w-full flex gap-3 items-center py-2 px-3 bg-gray-200">
-                   <BiCreditCard className="text-xl text-gray-500" />
-                   <div className="flex flex-col">
-                      <label className="text-sm text-gray-500">Last Payment</label>
-                      <label className="font-bold">2025-10-30</label>
                    </div>
               </div>
               </div>

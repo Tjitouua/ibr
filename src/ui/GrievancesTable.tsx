@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GrievancesFilters from '../components/GrievancesFilters';
 
 interface Complaints {
-    case_id: string;
-    beneficiary: string;
-    category: string;
-    description: string;
-    date: string;
+    id: string;
+    name: string;
+    complaint_category: string;
+    subject: string;
+    created_at: string;
     status: "Open" | "Resolved" 
 }
 
@@ -21,32 +21,23 @@ interface Props {
 
 const GrievancesTable: React.FC<Props> = ({ searchQuery, grievancesfilters }) => {
 
-    const complaints: Complaints[] = [
-        {
-            case_id: "GRV-401",
-            beneficiary: "Paulus Erastus",
-            category: "Payment Delay",
-            description: "Payment for October not received",
-            date: "2025-11-05",
-            status: "Open" 
-        },
-        {
-            case_id: "GRV-402",
-            beneficiary: "Natasha Simasiku",
-            category: "Account Suspension",
-            description: "Account suspended without notice",
-            date: "2025-11-07",
-            status: "Resolved" 
-        },
-        {
-            case_id: "GRV-403",
-            beneficiary: "Natasha Evans",
-            category: "Payment Failed",
-            description: "Bank transfer failed (incorrect account details)",
-            date: "2025-11-10",
-            status: "Open" 
-        },
-   ];
+    const [complaints, setComplaints] = useState<Complaints[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch("http://localhost/backend_ibr/getComplaints.php")
+        .then((res) => res.json())
+        .then((data) => {
+            setComplaints(data);
+            setLoading(false);
+        })
+        .catch((err) => {
+            console.error(err);
+            setLoading(false);
+        })
+    }, []);
+
+
 
    const normalizedQuery = searchQuery.toLowerCase();
 
@@ -89,12 +80,12 @@ const GrievancesTable: React.FC<Props> = ({ searchQuery, grievancesfilters }) =>
         <tbody>
             {filteredData.map((c) => (
             <tr className="border-b border-gray-300">
-                <td className="px-2 py-2 text-left">{c.case_id}</td>
-                <td className="px-2 py-2 text-left">{c.beneficiary}</td>
-                <td className="px-2 py-2 text-left">{c.category}</td>
-                <td className="px-2 py-2 text-left">{c.description}</td>
+                <td className="px-2 py-2 text-left">GRV-{c.id}</td>
+                <td className="px-2 py-2 text-left">{c.name}</td>
+                <td className="px-2 py-2 text-left">{c.complaint_category}</td>
+                <td className="px-2 py-2 text-left">{c.subject}</td>
                 {/* <td className="px-2 py-2 text-left">{b.region}</td> */}
-                <td className="px-2 py-2 text-left">{c.date}</td>
+                <td className="px-2 py-2 text-left">{new Date(c.created_at).toLocaleDateString()}</td>
                 <td className="px-2 py-2 text-left">
                     <div className={getStatusBadge(c.status)}>
                       {c.status}
@@ -125,3 +116,38 @@ const GrievancesTable: React.FC<Props> = ({ searchQuery, grievancesfilters }) =>
 
 
 export default GrievancesTable;
+
+
+
+
+/*
+
+
+    const complaints: Complaints[] = [
+        {
+            case_id: "GRV-401",
+            beneficiary: "Paulus Erastus",
+            category: "Payment Delay",
+            description: "Payment for October not received",
+            date: "2025-11-05",
+            status: "Open" 
+        },
+        {
+            case_id: "GRV-402",
+            beneficiary: "Natasha Simasiku",
+            category: "Account Suspension",
+            description: "Account suspended without notice",
+            date: "2025-11-07",
+            status: "Resolved" 
+        },
+        {
+            case_id: "GRV-403",
+            beneficiary: "Natasha Evans",
+            category: "Payment Failed",
+            description: "Bank transfer failed (incorrect account details)",
+            date: "2025-11-10",
+            status: "Open" 
+        },
+   ];
+
+   */

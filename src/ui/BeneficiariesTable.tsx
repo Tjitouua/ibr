@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Beneficiary {
     id: string;
+    id_number: string;
     name: string;
     age: number;
     gender: string;
     region: string;
     program: string;
-    status: "Active" | "Inactive" | "Pending"
+    status: "Active" | "Exit"
 }
 
 interface Props {
@@ -23,38 +25,40 @@ interface Props {
 
 
 const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
+    const [beneficiaries, setBeneficiaries] = useState<Beneficiary[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const beneficiaries: Beneficiary[] = [
-        {
-           id: "07110200628",
-           name: "Beatrix Hengua",
-           age: 43,
-           gender: "Female",
-           region: "Otjozondjupa",
-           program: "Old Age Grant",
-           status: "Active",
-        },
-        {
-            id: "07110200629",
-            name: "Tjitouua Mapoha",
-            age: 23,
-            gender: "Male",
-            region: "Khomas",
-            program: "Child Grant",
-            status: "Inactive",
-         },
-         {
-            id: "07110200627",
-            name: "Weriuka Hipose",
-            age: 23,
-            gender: "Female",
-            region: "Otjozondjupa",
-            program: "Child Grant",
-            status: "Pending",
-         },
-   ];
+    useEffect (() => {
+          fetch("http://localhost/backend_ibr/getBeneficiaries.php")
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log("Fetched data:", data);
+                // Ensure data is an array
+                const beneficiariesArray = Array.isArray(data) ? data : [data];
+                setBeneficiaries(beneficiariesArray);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Failed to fetch beneficiaries: ", err);
+                setLoading(false);
+            });
+    }, []);
+
+
+    console.log("Filter values:", filters);
+    console.log("Beneficiaries:", beneficiaries);
+
+
+
+
 
    const normalizedQuery = searchQuery.toLowerCase();
+
 
    const filteredData = beneficiaries.filter((b) => {
       const matchesSearch = Object.values(b).join(" ").toLowerCase().includes(normalizedQuery);
@@ -69,16 +73,25 @@ const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
    });
 
 
+
    const getStatusBadge = (status: Beneficiary["status"]): string => {
          switch (status) {
             case "Active":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-blue-600/70 text-white";
-            case "Inactive":
+            case "Exit":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-red-700/70 text-white";
-            case "Pending":
-                return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
+            // case "Pending":
+                // return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
          }
    }
+
+
+   const navigate = useNavigate();
+
+
+   const handleEdit = (id: string) => {
+        navigate(`/new_beneficiary/${id}`)
+   };
 
 
 
@@ -103,7 +116,7 @@ const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
         <tbody>
             {filteredData.map((b) => (
             <tr className="border-b border-gray-300">
-                <td className="px-2 py-2 text-left">{b.id}</td>
+                <td className="px-2 py-2 text-left">{b.id_number}</td>
                 <td className="px-2 py-2 text-left">{b.name}</td>
                 <td className="px-2 py-2 text-left">{b.age}</td>
                 <td className="px-2 py-2 text-left">{b.gender}</td>
@@ -115,7 +128,7 @@ const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
                     </div>
                 </td>
                 <td className="px-2 py-2 text-left">
-                    <button className="px-3 rounded-sm cursor-pointer py-2 flex justify-center items-center hover:text-white hover:bg-blue-600">View</button>
+                    <button onClick={() => handleEdit(b.id)} className="px-3 rounded-sm cursor-pointer py-2 flex justify-center items-center hover:text-white hover:bg-blue-600">View</button>
                 </td>
             </tr>
             ))}
@@ -139,7 +152,6 @@ const BeneficiariesTable: React.FC<Props> = ({ searchQuery, filters }) => {
 
 
 export default BeneficiariesTable;
-
 
 
 

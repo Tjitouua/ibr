@@ -10,28 +10,48 @@ import { LuClipboardPenLine } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { LiaMoneyBillWaveAltSolid } from "react-icons/lia";
 import { PiMoneyWavyBold } from "react-icons/pi";
+import { useEffect, useState } from "react";
 // import { title } from "process";
 
 
+  interface dashboardStats {
+    total_enrollments: number,
+    males: number,
+    females: number
+  }
+
+
 const DashboardTop: React.FC = () => {
+   const [stats, setStats] = useState<dashboardStats | null>(null);
+
+   useEffect(() => {
+        fetch("http://localhost/backend_ibr/getDashboardStats.php")
+        .then(res => res.json())
+        .then(data => setStats(data))
+        .catch(err => console.error("Failed to fetch dashboard stats: ", err));
+   }, []);
+
+   if(!stats) {
+      return <div>Loading Dashboard...</div>
+   }
 
     const StatCardList = [
        {
          title: "Total Enrollments",
          icon: <FiUsers />,
-         value: "308 822",
+         value: stats.total_enrollments.toLocaleString(),
          trend: "+12% from last month",
        },
        {
         title: "Males",
         icon:  <TbBrandRedhat />,
-        value: "119 741",
+        value: stats.males.toLocaleString(),
         trend: "38.77%",
       },
       {
         title: "Females",
         icon:  <PiDressBold />,
-        value: "184 724",
+        value: stats.females.toLocaleString(),
         trend: "59.82%",
       },
        {

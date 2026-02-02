@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Beneficiary {
-    id: string;
+    id_number: string;
     name: string;
-    programme: string;
+    program: string;
     gender: string;
     region: string;
     exit_date: string;
-    reason: "Death" | "Expired Grant" 
+    exit_reason: "Death" | "Expired Grant" 
 }
 
 interface Props {
@@ -20,7 +20,26 @@ interface Props {
 
 
 const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
+    const [beneficiaries, setBeneficiary] = useState<Beneficiary[]>([]);
+    const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        fetch("http://localhost/backend_ibr/getExits.php")
+        .then((res) => res.json())
+        .then((data) => {
+            setBeneficiary(data);
+            setLoading(false);
+        })
+        .catch((err) => {
+            console.error(err);
+            setLoading(false);
+        })
+    }, []);
+
+
+
+
+/*
     const beneficiaries: Beneficiary[] = [
         {
            id: "07110200628",
@@ -51,18 +70,22 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
          },
    ];
 
+   */
+
+
+
    const normalizedQuery = searchQuery.toLowerCase();
 
    const filteredData = beneficiaries.filter((b) => {
       const matchesSearch = Object.values(b).join(" ").toLowerCase().includes(normalizedQuery);
 
       const matchesFilters = 
-      (!exitfilters.Reason || b.reason.toLowerCase() === exitfilters.Reason.toLowerCase())
+      (!exitfilters.Reason || b.exit_reason.toLowerCase() === exitfilters.Reason.toLowerCase())
       return matchesSearch && matchesFilters;
    });
 
 
-   const getStatusBadge = (status: Beneficiary["reason"]): string => {
+   const getStatusBadge = (status: Beneficiary["exit_reason"]): string => {
          switch (status) {
             case "Death":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-blue-600/70 text-white";
@@ -83,7 +106,7 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
             <tr>
                 <th className="px-3 py-3 text-left">ID</th>
                 <th className="px-3 py-3 text-left">Name</th>
-                <th className="px-3 py-3 text-left">Programme</th>
+                <th className="px-3 py-3 text-left">Program</th>
                 <th className="px-3 py-3 text-left">Gender</th>
                 <th className="px-3 py-3 text-left">Region</th>
                 <th className="px-3 py-3 text-left">Exit Date</th>
@@ -93,15 +116,15 @@ const ExitsTable: React.FC<Props> = ({ searchQuery, exitfilters }) => {
         <tbody>
             {filteredData.map((b) => (
             <tr className="border-b border-gray-300">
-                <td className="px-2 py-2 text-left">{b.id}</td>
+                <td className="px-2 py-2 text-left">{b.id_number}</td>
                 <td className="px-2 py-2 text-left">{b.name}</td>
-                <td className="px-2 py-2 text-left">{b.programme}</td>
+                <td className="px-2 py-2 text-left">{b.program}</td>
                 <td className="px-2 py-2 text-left">{b.gender}</td>
                 <td className="px-2 py-2 text-left">{b.region}</td>
                 <td className="px-2 py-2 text-left">{b.exit_date}</td>
                 <td className="px-2 py-2 text-left">
-                    <div className={getStatusBadge(b.reason)}>
-                      {b.reason}
+                    <div className={getStatusBadge(b.exit_reason)}>
+                      {b.exit_reason}
                     </div>
                 </td>
                 {/* <td className="px-2 py-2 text-left"> */}

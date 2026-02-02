@@ -8,41 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const LocationProgramForm = () => {
+const LocationProgramForm = ({ locationInfo, setLocationInfo, errors }) => {
 
 
-
-        
-    const navigate = useNavigate();
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-
-
-    const handleLogin = () => {
-
-        let valid = true;
-
-         setEmailError("");
-         setPasswordError("");
-
-         if (!email) {
-            setEmailError("Please enter your email.");
-            valid=false;
-         }
-
-         if (!password) {
-           setPasswordError("Please enter your password.");
-           valid=false;
-         }
-
-         if (!valid) return;
-
-         navigate('/dashboard')
-    }
+      const handleChange = (e) => {
+           const {name, value} = e.target;
+           setLocationInfo({ ...locationInfo, [name]: value })
+      }
 
 
 
@@ -58,25 +30,38 @@ const LocationProgramForm = () => {
                         <label className="text-sm text-gray-500">Assign region and program for the beneficiary</label>
                         </div>
             
-                         {/* First name & Last Name  */}
-                        <div className="w-full flex gap-3 items-center justify-between flex-wrap">
+                         {/* Region & Town  */}
+                        <div className="w-full flex gap-3 justify-between flex-wrap">
                                 <div className="w-full sm:w-[48%] flex flex-col gap-2">
                                    <label>Region *</label>
                                    <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                       <IoLocationOutline className="text-lg" />
             
                                       <select
-                                         value={email}
-                                         onChange={(e) => setEmail(e.target.value)}
+                                         name="region"
+                                         value={locationInfo.region}
+                                         onChange={handleChange}
                                          className="w-full h-9 rounded-md outline-none border-none bg-transparent focus:ring-0"
                                        >
                                             <option value="">Select region</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="Erongo">Erongo</option>
+                                            <option value="Hardap">Hardap</option>
+                                            <option value="Kavango East">Kavango East</option>
+                                            <option value="Kavango West">Kavango West</option>
+                                            <option value="Khomas">Khomas</option>
+                                            <option value="Kunene">Kunene</option>
+                                            <option value="Karas">Karas</option>
+                                            <option value="Ohangwena">Ohangwena</option>
+                                            <option value="Omaheke">Omaheke</option>
+                                            <option value="Omusati">Omusati</option>
+                                            <option value="Oshana">Oshana</option>
+                                            <option value="Oshikoto">Oshikoto</option>
+                                            <option value="Otjozondjupa">Otjozondjupa</option>
+                                            <option value="Zambezi">Zambezi</option>
                                       </select>
                                    </div>
             
-                                   {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                   {errors.region && <p className="text-red-600 text-xs">{errors.region}</p>}
             
                                </div>
             
@@ -84,34 +69,37 @@ const LocationProgramForm = () => {
                                     <label>Town *</label>
                                       <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                          <FaRegBuilding className="text-lg" />
-                                         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter town" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
+                                         <input type="text" name="town" value={locationInfo.town} onChange={handleChange} placeholder="Enter town" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
                                       </div>
             
-                                    {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                    {errors.town && <p className="text-red-600 text-xs">{errors.town}</p>}
                                 </div>
                         </div>
             
             
                         
-                         {/* ID Nummber & DOB  */}
-                        <div className="w-full flex gap-3 items-center justify-between flex-wrap">
+                         {/* Program & Status  */}
+                        <div className="w-full flex gap-3  justify-between flex-wrap">
                                 <div className="w-full sm:w-[48%] flex flex-col gap-2">
                                    <label>Program *</label>
                                    <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                       <LiaFileAlt className="text-lg" />
             
                                       <select
-                                         value={email}
-                                         onChange={(e) => setEmail(e.target.value)}
+                                         name="program"
+                                         value={locationInfo.program}
+                                         onChange={handleChange}
                                          className="w-full h-9 rounded-md outline-none border-none bg-transparent focus:ring-0"
                                        >
                                             <option value="">Select program</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="Old Age Grant">Old Age Grant</option>
+                                            <option value="Permanent Disability Grant">Permanent Disability Grant</option>
+                                            <option value="Orphans Grant">Orphans Grant</option>
+                                            <option value="Vulnerable Children Grant">Vulnerable Children Grant</option>
                                       </select>
                                    </div>
             
-                                   {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                   {errors.program && <p className="text-red-600 text-xs">{errors.program}</p>}
             
                                </div>
             
@@ -123,17 +111,19 @@ const LocationProgramForm = () => {
                                       <LiaFileAlt className="text-lg" />
             
                                       <select
-                                         value={email}
-                                         onChange={(e) => setEmail(e.target.value)}
+                                         name="status"
+                                         value={locationInfo.status}
+                                         onChange={handleChange}
                                          className="w-full h-9 rounded-md outline-none border-none bg-transparent focus:ring-0"
                                        >
-                                            <option value="">Pending</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="">Select status</option>
+                                            {/* <option value="Pending">Pending</option> */}
+                                            <option value="Active">Active</option>
+                                            <option value="Exit">Exit</option>
                                       </select>
                                    </div>
             
-                                   {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                   {errors.status && <p className="text-red-600 text-xs">{errors.status}</p>}
             
                                </div>
             

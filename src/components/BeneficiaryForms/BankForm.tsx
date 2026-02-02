@@ -7,40 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const BankForm = () => {
+const BankForm = ({ bankInfo, setBankInfo, errors }) => {
 
 
-        
-    const navigate = useNavigate();
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-
-
-    const handleLogin = () => {
-
-        let valid = true;
-
-         setEmailError("");
-         setPasswordError("");
-
-         if (!email) {
-            setEmailError("Please enter your email.");
-            valid=false;
-         }
-
-         if (!password) {
-           setPasswordError("Please enter your password.");
-           valid=false;
-         }
-
-         if (!valid) return;
-
-         navigate('/dashboard')
-    }
+     const handleChange = (e) => {
+           const {name, value} = e.target;
+           setBankInfo({ ...bankInfo, [name]: value })
+      }
 
 
 
@@ -54,24 +27,27 @@ const BankForm = () => {
                       </div>
           
                        {/* Bank name & Account number  */}
-                      <div className="w-full flex gap-3 items-center justify-between flex-wrap">
+                      <div className="w-full flex gap-3 justify-between flex-wrap">
                               <div className="w-full sm:w-[48%] flex flex-col gap-2">
                                  <label>Bank Name *</label>
                                  <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                     <RiBankLine className="text-lg" />
           
                                     <select
-                                       value={email}
-                                       onChange={(e) => setEmail(e.target.value)}
+                                       name="bankName"
+                                       value={bankInfo.bankName}
+                                       onChange={handleChange}
                                        className="w-full h-9 rounded-md outline-none border-none bg-transparent focus:ring-0"
                                      >
                                           <option value="">Select bank</option>
-                                          <option value="male">Male</option>
-                                          <option value="female">Female</option>
+                                          <option value="FNB">FNB</option>
+                                          <option value="Bank Windhoek">Bank Windhoek</option>
+                                          <option value="Standard Bank">Standard Bank</option>
+                                          <option value="Nedbank">Nedbank</option>
                                     </select>
                                  </div>
           
-                                 {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                 {errors.bankName && <p className="text-red-600 text-xs">{errors.bankName}</p>}
           
                              </div>
           
@@ -79,25 +55,25 @@ const BankForm = () => {
                                   <label>Account Number *</label>
                                     <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                        <RiBankCardLine className="text-lg" />
-                                       <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter account number" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
+                                       <input type="text" name="accountNumber" value={bankInfo.accountNumber} onChange={handleChange} placeholder="Enter account number" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
                                     </div>
           
-                                  {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                  {errors.accountNumber && <p className="text-red-600 text-xs">{errors.accountNumber}</p>}
                               </div>
                       </div>
           
           
                       
                        {/* Branch code & Account type  */}
-                      <div className="w-full flex gap-3 items-center justify-between flex-wrap">
+                      <div className="w-full flex gap-3 justify-between flex-wrap">
                               <div className="w-full sm:w-[48%] flex flex-col gap-2">
                                   <label>Branch code *</label>
                                     <div className="flex gap-3 items-center border border-gray-500 rounded-md px-1 focus-within:border-black">
                                        <HiMiniHashtag className="text-lg" />
-                                       <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter branch code" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
+                                       <input type="text" name="branchCode" value={bankInfo.branchCode} onChange={handleChange} placeholder="Enter branch code" className="w-full h-9 rounded-md outline-none border-none focus:ring-0" />
                                     </div>
           
-                                  {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                  {errors.branchCode && <p className="text-red-600 text-xs">{errors.branchCode}</p>}
                               </div>
           
                               <div className="w-full sm:w-[48%] flex flex-col gap-2">
@@ -106,17 +82,18 @@ const BankForm = () => {
                                     <RiBankCardLine className="text-lg" />
           
                                     <select
-                                       value={email}
-                                       onChange={(e) => setEmail(e.target.value)}
+                                       name="accountType"
+                                       value={bankInfo.accountType}
+                                       onChange={handleChange}
                                        className="w-full h-9 rounded-md outline-none border-none bg-transparent focus:ring-0"
                                      >
                                           <option value="">Select type</option>
-                                          <option value="male">Savings</option>
-                                          <option value="female">Check/Current</option>
+                                          <option value="Savings">Savings</option>
+                                          <option value="Check">Check/Current</option>
                                     </select>
                                  </div>
           
-                                 {emailError && <p className="text-red-600 text-xs">{emailError}</p>}
+                                 {errors.accountType && <p className="text-red-600 text-xs">{errors.accountType}</p>}
           
                              </div>
                       </div>

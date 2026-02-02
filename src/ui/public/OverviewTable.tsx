@@ -125,7 +125,7 @@ const OverviewTable = () => {
                 <th className="px-3 py-3 text-left">Exits</th>
                 <th className="px-3 py-3 text-left">Registration</th>
                 <th className="px-3 py-3 text-left">Amount</th>
-                <th className="px-3 py-3 text-left">Percent %</th>
+                {/* <th className="px-3 py-3 text-left">Percent %</th> */}
             </tr>
         </thead>
         <tbody>
@@ -140,7 +140,7 @@ const OverviewTable = () => {
                 <td className="px-2 py-3 text-left">
                     <div className="min-w-2 bg-orange-300 inline-flex py-1 px-3 rounded text-black ">N$ {b.amount.toLocaleString()}</div>
                     </td>
-                <td className="px-2 py-3 text-left font-bold">{b.percent}</td>
+                {/* <td className="px-2 py-3 text-left font-bold">{b.percent}</td> */}
             </tr>
              ))} 
 

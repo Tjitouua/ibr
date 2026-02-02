@@ -2,11 +2,48 @@
 // import Graphs from "../ui/Graphs";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, type PieLabelRenderProps } from "recharts";
 import Graphs from "./Graphs";
+import { useEffect, useState } from "react";
+
+
+  interface ProgramData {
+     name: string;
+     value: number;
+  };
+
+  const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF"];
 
 
 
 const ExitProgramme = () => {
+  const [programData, setProgramData] = useState<ProgramData[]>([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+           fetch("http://localhost/backend_ibr/getExitsProgramsStats.php")
+           .then(res => res.json())
+           .then(data => {
+              setProgramData(data);
+              setLoading(false);
+           })
+           .catch(err => {
+               console.error("Failed to fetch program stats: ", err);
+               setLoading(false);
+           });
+       }, []);
+  
+       if(loading) {
+          return <p className="text-xs">Loading programme data...</p>
+       }
+  
+       if(programData.length == 0) {
+          return <p className="text-xs">No programme data available</p>
+       }
+  
+
+
+
+
+/*
     const genderData = [
        { name: "CBIG", value: 25369 },
        { name: "Temporary Disability Grant", value: 4896 },
@@ -15,8 +52,9 @@ const ExitProgramme = () => {
        { name: "Street Committee Member", value: 11100 },
        { name: "Assistant Teachers", value: 22900 },
     ];
+    */
 
-    const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF"];
+    // const COLORS = ["#36454F", "#1434A4", "#D22B2B", "#4F7942", "#F28C28", "#7F00FF"];
 
 
      return (    
@@ -25,7 +63,7 @@ const ExitProgramme = () => {
             <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                        <Pie 
-                          data={genderData} 
+                          data={programData} 
                           dataKey="value" 
                           nameKey="name" 
                           outerRadius={160} 
@@ -35,7 +73,7 @@ const ExitProgramme = () => {
                             return `${name}: ${(percent * 100).toFixed(0)}%`;
                           }}
                          >
-                          {genderData.map((entry, index) => (
+                          {programData.map((entry, index) => (
                             <Cell key={index} fill={COLORS[index % COLORS.length]} />
                           ))}
                        </Pie>

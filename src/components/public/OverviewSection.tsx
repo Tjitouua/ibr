@@ -14,8 +14,8 @@ const OverviewSection = () => {
           <label className="font-bold text-2xl">Enrolments</label>
           <label className="text-gray-600 pb-2">Overview of beneficiary enrollment across all social programs.</label>
           <OverviewList />
-          {/* <label className="font-bold text-2xl mt-8">Program Details</label> */}
-          {/* <label className="text-gray-600">Overview of all social protection programs</label> */}
+          <label className="font-bold text-2xl">Program Statistics</label>
+          <label className="text-gray-600">Visual representation of enrollments, gender distribution, and payments</label>
           <OverviewGraphsDiv />
        </PublicSectionsDiv>
      );

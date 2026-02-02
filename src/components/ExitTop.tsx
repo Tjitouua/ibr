@@ -15,28 +15,48 @@ import { TbCoffin } from "react-icons/tb";
 import { ImExit } from "react-icons/im";
 import { GiTimeBomb } from "react-icons/gi";
 import { GiSandsOfTime } from "react-icons/gi";
+import { useEffect, useState } from "react";
 // import { title } from "process";
 
 
+ interface ExitsStats {
+    total_exits: number,
+    death: number,
+    expired_grant: number
+ };
+
+
 const ExitTop: React.FC = () => {
+  const [exitStats, setExitStats] = useState<ExitsStats | null>(null);
+
+  useEffect(() => {
+    fetch("http://localhost/backend_ibr/getExitsStat.php")
+    .then((res) => res.json())
+    .then(data => setExitStats(data))
+    .catch(err => console.error("Failed to fetch exit stats: ", err))
+  }, []);
+
+  if(!exitStats) {
+      return <div>Loading Exits...</div>
+  }
 
     const StatCardList = [
        {
          title: "Total Exits",
          icon: <ImExit />,
-         value: "164,080",
+         value: exitStats.total_exits.toLocaleString(),
          trend: "Across all programmes",
        },
        {
         title: "Death",
         icon:  <TbCoffin />,
-        value: "150,137",
+        value: exitStats.death.toLocaleString(),
         trend: "91.5% of exits",
       },
       {
         title: "Expired Grant",
         icon:  <GiSandsOfTime />,
-        value: "13,943",
+        value: exitStats.expired_grant.toLocaleString(),
         trend: "8.5% of exits",
       },
     ];

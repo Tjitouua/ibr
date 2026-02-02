@@ -7,16 +7,37 @@ import { PiDressBold } from "react-icons/pi";
 import { CiCircleList } from "react-icons/ci";
 import { IoIosList } from "react-icons/io";
 import { MdFormatListBulleted } from "react-icons/md";
+import { useEffect, useState } from "react";
 // import { title } from "process";
 
 
+
+  interface dashboardStats {
+    total_enrollments: number,
+    males: number,
+    females: number
+  }
+
+
 const EnrolmentTop: React.FC = () => {
+   const [stats, setStats] = useState<dashboardStats | null>(null);
+
+   useEffect(() => {
+           fetch("http://localhost/backend_ibr/getDashboardStats.php")
+           .then(res => res.json())
+           .then(data => setStats(data))
+           .catch(err => console.error("Failed to fetch dashboard stats: ", err));
+      }, []);
+   
+      if(!stats) {
+         return <div>Loading Dashboard...</div>
+      }
 
     const StatCardList = [
         {
             title: "Total Beneficiaries Enrolled",
             icon:  <FiUsers />,
-            value: "308,835",
+            value: stats.total_enrollments.toLocaleString(),
             trend: "People currently receiving benefits",
           },
           {
@@ -28,13 +49,13 @@ const EnrolmentTop: React.FC = () => {
        {
          title: "Male Beneficiaries",
          icon:  <TbBrandRedhat />,
-         value: "119,744",
+         value: stats.males.toLocaleString(),
          trend: "38.77%",
        },
        {
         title: "Female Beneficiaries",
         icon:  <PiDressBold />,
-        value: "184,730",
+        value: stats.females.toLocaleString(),
         trend: "59.82%",
       },
 

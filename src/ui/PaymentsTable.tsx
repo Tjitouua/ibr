@@ -1,60 +1,31 @@
+import type React from "react";
 
-interface Beneficiary {
-    paymentId: string;
+interface Payments {
+    payment_id: string;
     beneficiary: string;
     amount: number;
-    date: string;
+    payment_date: string;
     program: string;
-    status: "Completed" | "Failed" | "Pending"
+    region: string;
+    payment_status: "Completed" | "Pending"
+}
+
+
+interface Props {
+  searchQuery:string;
+  data: Payments[];
 }
 
 
 
-const PaymentsTable = () => {
-           
-    const beneficiaries: Beneficiary[] = [
-        {
-           paymentId: "PAY011",
-           beneficiary: "Sarah Johnson",
-           amount: 850,
-           date: "Oct 30, 2025",
-           program: "Food Support",
-           status: "Completed",
-        },
-        {
-            paymentId: "PAY012",
-            beneficiary: "Michael Chen",
-            amount: 1200,
-            date: "Oct 31, 2025",
-            program: "Senior Care",
-            status: "Completed",
-         },
-         {
-            paymentId: "PAY013",
-            beneficiary: "Emma Williams",
-            amount: 650,
-            date: "Oct 30, 2025",
-            program: "Child Grant",
-            status: "Failed",
-         },
-         {
-            paymentId: "PAY014",
-            beneficiary: "Lisa Anderson",
-            amount: 650,
-            date: "Oct 31, 2025",
-            program: "Child Grant",
-            status: "Completed",
-         },
+const PaymentsTable: React.FC<Props> = ({ data }) => {
+       
+    
 
-   ];
-
-
-   const getStatusBadge = (status: Beneficiary["status"]): string => {
+   const getStatusBadge = (status: Payments["payment_status"]): string => {
          switch (status) {
             case "Completed":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl bg-blue-600/70 text-white";
-            case "Failed":
-                return "inline-block py-1 text-[12px] px-2 rounded-xl bg-red-700/70 text-white";
             case "Pending":
                 return "inline-block py-1 text-[12px] px-2 rounded-xl border border-gray-400";
          }
@@ -75,27 +46,31 @@ const PaymentsTable = () => {
                 <th className="px-3 py-3 text-left">Amount</th>
                 <th className="px-3 py-3 text-left">Date</th>
                 <th className="px-3 py-3 text-left">Program</th>
+                <th className="px-3 py-3 text-left">Region</th>
                 <th className="px-3 py-3 text-left">Status</th>
                 <th className="px-3 py-3 text-left">Actions</th>
             </tr>
         </thead>
         <tbody>
-            {beneficiaries.map((b) => (
+            {data.map((b) => (
             <tr className="border-b border-gray-300">
-                <td className="px-2 py-2 text-left">{b.paymentId}</td>
+                <td className="px-2 py-2 text-left">{b.payment_id}</td>
                 <td className="px-2 py-2 text-left">{b.beneficiary}</td>
                 <td className="px-2 py-2 text-left">{b.amount}</td>
-                <td className="px-2 py-2 text-left">{b.date}</td>
+                <td className="px-2 py-2 text-left">{b.payment_date}</td>
                 <td className="px-2 py-2 text-left">{b.program}</td>
-                {/* <td className="px-2 py-2 text-left">{b.program}</td> */}
+                <td className="px-2 py-2 text-left">{b.region}</td>
+               
                 <td className="px-2 py-2 text-left">
-                    <div className={getStatusBadge(b.status)}>
-                      {b.status}
+                    <div className={getStatusBadge(b.payment_status)}>
+                      {b.payment_status}
                     </div>
                 </td>
+                 
                 <td className="px-2 py-2 text-left">
                     <button className="px-3 rounded-sm cursor-pointer py-2 flex justify-center items-center hover:text-white hover:bg-blue-600">View</button>
                 </td>
+               
             </tr>
             ))}
         </tbody>

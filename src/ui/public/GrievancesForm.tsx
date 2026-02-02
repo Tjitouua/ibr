@@ -44,7 +44,7 @@ const GrievancesForm = () => {
             setFullNameError("Please enter your full name.");
             valid = false;
         }
-        if (!email) {
+        if (!idNo) {
             setIdNoError("Please enter your ID Number.");
             valid = false;
         }
@@ -74,6 +74,46 @@ const GrievancesForm = () => {
         }
 
         if (!valid) return;
+
+
+        fetch("http://localhost/backend_ibr/addComplaint.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: fullName,
+                id_number: idNo,
+                phone_number: phoneNo,
+                email: email,
+                region: region,
+                complaint_category: category,
+                subject: subject,
+                message: message
+            }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.success) {
+                alert("Complaint submitted successfully");
+
+                setFullName("");
+                setIdNo("");
+                setPhoneNo("");
+                setEmail("");
+                setRegion("");
+                setCategory("");
+                setSubject("");
+                setMessage("");
+            } else {
+                alert(data.error || "Something went wrong");
+            }
+        })
+         .catch((err) => {
+             console.error(err);
+             alert("Server error. Please try again");
+         })
+        
 
 
 
@@ -124,10 +164,24 @@ const GrievancesForm = () => {
             {/* Region  */}
             <div className="w-full py-2 flex flex-col gap-3 text-black/80">
                   <label className="font-bold text-sm">Region *</label>
-                  <select className="w-full border border-gray-300 cursor-pointer bg-gray-100 py-2 px-3">
-                      <option>Select your region</option>
-                      <option>Khomas</option>
+                  <select value={region} onChange={(e) => setRegion(e.target.value)} className="w-full border border-gray-300 cursor-pointer bg-gray-100 py-2 px-3">
+                      <option value="">Select region</option>
+                      <option value="Erongo">Erongo</option>
+                      <option value="Hardap">Hardap</option>
+                      <option value="Kavango East">Kavango East</option>
+                      <option value="Kavango West">Kavango West</option>
+                      <option value="Khomas">Khomas</option>
+                      <option value="Kunene">Kunene</option>
+                      <option value="Karas">Karas</option>
+                      <option value="Ohangwena">Ohangwena</option>
+                      <option value="Omaheke">Omaheke</option>
+                      <option value="Omusati">Omusati</option>
+                      <option value="Oshana">Oshana</option>
+                      <option value="Oshikoto">Oshikoto</option>
+                      <option value="Otjozondjupa">Otjozondjupa</option>
+                      <option value="Zambezi">Zambezi</option>
                   </select>
+                  {regionError && <p className="text-red-600">{regionError}</p>}
            </div>
 
 
@@ -140,10 +194,15 @@ const GrievancesForm = () => {
            {/* Category  */}
            <div className="w-full py-2 flex flex-col gap-3 text-black/80">
                   <label className="font-bold text-sm">Category *</label>
-                  <select className="w-full border border-gray-300 cursor-pointer bg-gray-100 py-2 px-3">
-                      <option>Select complaint category</option>
-                      <option>Enrollment Problems</option>
+                  <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full border border-gray-300 cursor-pointer bg-gray-100 py-2 px-3">
+                      <option value="">Select complaint category</option>
+                      <option value="Enrollment Problems">Enrollment Problems</option>
+                      <option value="Payments Issues">Payments Issues</option>
+                      <option value="Poor Customer Service">Poor Customer Service</option>
+                      <option value="Application Status">Application Status</option>
+                      <option value="Payments Issues">Payments Issues</option>
                   </select>
+                  {categoryError && <p className="text-red-600">{categoryError}</p>}
            </div>
 
            {/* Subject  */}

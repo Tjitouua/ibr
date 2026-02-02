@@ -2,11 +2,37 @@ import { FaSearch } from "react-icons/fa";
 import GrievancesForm from "../../ui/public/GrievancesForm";
 import PublicSectionsDiv from "../../ui/public/PublicSectionsDiv";
 import StatusCard from "../../ui/public/StatusCard";
+import { useState } from "react";
 
 
 
 
 const PublicGrievancesSection = () => {
+    const [search, setSearch] = useState("");
+    const [result, setResult] = useState<any>(null);
+    const [loading, setLoading] = useState(false);
+
+    const verifyBeneficiary = () => {
+        setLoading(true);
+        fetch("http://localhost/backend_ibr/verifyBeneficiary.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ search })
+        })
+         .then(res => res.json())
+         .then(data => {
+             setResult(data);
+             setLoading(false);
+         })
+         .catch(err => {
+            console.error(err);
+            setLoading(false);
+         });
+    };
+
+
+
+
      return (
         <PublicSectionsDiv>
             <label className="font-bold text-2xl">Complaint Submission</label>
@@ -19,15 +45,17 @@ const PublicGrievancesSection = () => {
                        <label className="text-sm text-gray-400">Enter your details below to check if you are a beneficiary</label>
                        {/* ID Number  */}
                        <div className="w-full py-2 flex flex-col gap-3 text-black/80">
-                           <label className="font-bold text-sm">ID Number or Program Number</label>
-                           <input className="w-full border border-gray-300 bg-gray-100 py-2 px-3" type="text" placeholder="Enter your ID number (e.g. 8976234829)" />
+                           <label className="font-bold text-sm">ID Number</label>
+                           <input className="w-full border border-gray-300 bg-gray-100 py-2 px-3" type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Enter your ID number (e.g. 8976234829)" />
                        </div>
                        {/* Button  */}
-                       <button className="bg-black text-white rounded-sm gap-3 px-2 py-3 flex justify-center items-center hover:bg-black/70 cursor-pointer w-full mt-3">Verify Status <FaSearch /></button>
+                       <button onClick={verifyBeneficiary} className="bg-black text-white rounded-sm gap-3 px-2 py-3 flex justify-center items-center hover:bg-black/70 cursor-pointer w-full mt-3">Verify Status <FaSearch /></button>
                     </div>
 
+                    {loading && <p className="text-xs">Checking status...</p>}
 
-                   <StatusCard />
+
+                   {result && <StatusCard result={result} />}
 
 
                 </div>
