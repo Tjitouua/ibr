@@ -4,14 +4,15 @@ import { IoChevronForward } from "react-icons/io5";
 
 interface PaymentFilterButtProps {
     icon: ReactNode;
+    onClick?: () => void;
 }
 
 
 
 
-const PaymentFilterButt = ({ icon }: PaymentFilterButtProps) => {
+const PaymentFilterButt = ({ icon, onClick }: PaymentFilterButtProps) => {
      return (
-        <button className="
+        <button onClick={onClick} className="
         py-2 px-2 cursor-pointer 
         items-center justify-center
          rounded-md border border-gray-300

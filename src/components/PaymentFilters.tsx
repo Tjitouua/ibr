@@ -13,6 +13,8 @@ interface FilterOption {
      categories: FilterCategory[];
      selectedGrievancesFilters: {
        Status: string;
+       Month: string;
+       Year: string;
      };
  
      onChange: (category: string, value: string) => void;

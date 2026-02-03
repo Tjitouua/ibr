@@ -16,9 +16,20 @@ import PaymentFilters from "./PaymentFilters";
   payment_status: "Completed" | "Pending";
 }
 
+interface Props {
+  selectedFilters: {
+    Status: string;
+    Month: string;
+    Year: string;
+  };
+  onFilterChange: (category: string, value: string) => void;
+}
 
 
-const PaymentsList: React.FC = () => {
+
+
+
+const PaymentsList: React.FC<Props> = ({ selectedFilters, onFilterChange }) => {
    const [payments, setPayments] = useState<Payments[]>([]);
    const [loading, setLoading] = useState(true);
     
@@ -26,7 +37,7 @@ const PaymentsList: React.FC = () => {
     const [showFilters, setShowFilters] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
-
+/*
     const [selectedFilters, setSelectedFilters] = useState({
        Status: "",
        Month: "",
@@ -39,6 +50,7 @@ const PaymentsList: React.FC = () => {
          [category]: value,
        }));
     };
+    */
     
 
 
@@ -51,6 +63,30 @@ const PaymentsList: React.FC = () => {
             { label: "Pending", value: "Pending" },
           ], 
        },
+       {
+         name: "Month",
+         options: [
+           { label: "January", value: "January" },
+           { label: "February", value: "February" },
+           { label: "March", value: "March" },
+           { label: "April", value: "April" },
+           { label: "May", value: "May" },
+           { label: "June", value: "June" },
+           { label: "July", value: "July" },
+           { label: "August", value: "August" },
+           { label: "September", value: "September" },
+           { label: "October", value: "October" },
+           { label: "November", value: "November" },
+           { label: "December", value: "December" },
+         ],
+      },
+      {
+        name: "Year",
+        options: [
+          { label: "2025", value: "2025" },
+          { label: "2026", value: "2026" },
+        ],
+      },
 
     ];
 
@@ -125,6 +161,32 @@ const PaymentsList: React.FC = () => {
     if (selectedFilters.Status && b.payment_status !== selectedFilters.Status) {
       return false;
     }
+
+    if(selectedFilters.Month) {
+      const monthName = new Date(b.payment_date).toLocaleString("default", {
+         month: "long",
+      });
+      if(monthName !== selectedFilters.Month) return false;
+    }
+
+    if(selectedFilters.Year) {
+      const year = new Date(b.payment_date).getFullYear().toString();
+      if(year !== selectedFilters.Year) return false;
+    }
+
+
+    if(searchQuery) {
+      const lowerQuery = searchQuery.toLowerCase();
+      if(
+         !b.beneficiary.toLowerCase().includes(lowerQuery) &&
+         !b.payment_id.toLowerCase().includes(lowerQuery)
+      )
+      return false;
+    }
+
+
+
+
     return true;
   });
 
@@ -138,7 +200,7 @@ const PaymentsList: React.FC = () => {
 
             <div className="flex flex-col">
             <label className="font-bold text-lg">Payment Transactions</label>
-            <label className="text-sm text-gray-500">{filteredPayments.length} out of {totalPayments} payment(s) completed in October 2025</label>
+            <label className="text-sm text-gray-500">{filteredPayments.length} out of {payments.length} payment(s) completed in October 2025</label>
             </div>
             {/* Search Div  */}
             <div className="flex w-full justify-between items-center">
@@ -153,14 +215,17 @@ const PaymentsList: React.FC = () => {
 
 
             
-            {/* Filtering Div  */}
+            
             {showFilters && (
                 <PaymentFilters
                   categories={filterCategories} 
                   selectedGrievancesFilters={selectedFilters}
-                  onChange={handleFilterChange}
+                  // selectedGrievancesFilters={localFilters}
+                  onChange={onFilterChange}
                 />
             )}
+
+            
 
 
 
