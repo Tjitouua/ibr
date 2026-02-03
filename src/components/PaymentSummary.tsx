@@ -1,25 +1,48 @@
+import type React from "react";
 import PaymentSummaryCard from "../ui/PaymentSummaryCard";
+import { useEffect, useState } from "react";
+
+
+  interface PaymentStats {
+      total_budget: number;
+      completed_payments: number;
+      pending_payments: number;
+  }
 
 
 
-const PaymentSummary = () => {
+const PaymentSummary: React.FC = () => {
+    const [paymentStats, setPaymentStats] = useState<PaymentStats | null>(null);
+
+    useEffect(() => {
+        fetch("http://localhost/backend_ibr/getPaymentStats.php")
+        .then(res => res.json())
+        .then(data => setPaymentStats(data))
+        .catch(err => console.error("Failed to fetch payment stats: ", err))
+    }, []);
+
+    if(!paymentStats) {
+        return <p className="text-xs">Loading payment stats....</p>
+    }
+
+
      return (
         <div className="w-full rounded-lg flex justify-between items-center gap-3">
             <PaymentSummaryCard
                 title="Total Budget"
-                amount="15 000"
+                amount={paymentStats.total_budget.toLocaleString()}
                 desc="October 2025"
             />
 
             <PaymentSummaryCard
                 title="Completed Payments"
-                amount="1 000"
+                amount={paymentStats.completed_payments.toLocaleString()}
                 desc="Awaiting processing"
             />
 
             <PaymentSummaryCard
                 title="Pending Payments"
-                amount="0"
+                amount={paymentStats.pending_payments.toLocaleString()}
                 desc="Requires attention"
             />
         </div>
