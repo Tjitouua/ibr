@@ -30,19 +30,19 @@ const PaymentSummary: React.FC = () => {
         <div className="w-full rounded-lg flex justify-between items-center gap-3">
             <PaymentSummaryCard
                 title="Total Budget"
-                amount={paymentStats.total_budget.toLocaleString()}
+                amount={Number(paymentStats.total_budget).toLocaleString()}
                 desc="October 2025"
             />
 
             <PaymentSummaryCard
                 title="Completed Payments"
-                amount={paymentStats.completed_payments.toLocaleString()}
+                amount={Number(paymentStats.completed_payments).toLocaleString()}
                 desc="Awaiting processing"
             />
 
             <PaymentSummaryCard
                 title="Pending Payments"
-                amount={paymentStats.pending_payments.toLocaleString()}
+                amount={Number(paymentStats.pending_payments).toLocaleString()}
                 desc="Requires attention"
             />
         </div>

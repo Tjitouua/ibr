@@ -1,7 +1,9 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 import Graphs from "./Graphs";
+import { useEffect, useState } from "react";
 // import Graphs from "../ui/Graphs";
 
+/*
 const regions = [
     { program: "CBIG", enrolled: 20400 },
     { program: "Temporary Disability Grant", enrolled: 96800 },
@@ -11,19 +13,32 @@ const regions = [
     { program: "Old Age Grant", enrolled: 50400 },
 
 ];
+*/
 
 
 const EnrolmentPaymentsGraph = () => {
+   const [data, setData] = useState([]);
+   
+      useEffect(() => {
+         fetch("http://localhost/backend_ibr/getPaymentsByProgrammeStats.php")
+         .then((res) => res.json())
+         .then(setData)
+         .catch(err => console.error("Failed to fetch data: ", err))
+      }, []);
+   
+
+
+
     return (
  <Graphs title="Total payments by Programme" desc="Payments across all Programme">
     <div className="w-full h-90 mt-2 text-[10px] font-bold text-black">
        <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={regions} margin={{ top: 0, right: 30, left: 0, bottom: 15 }}>
+            <BarChart data={data} margin={{ top: 0, right: 30, left: 0, bottom: 15 }}>
                <CartesianGrid strokeDasharray="3 3" />
                <XAxis dataKey="program" interval={0} angle={-30} textAnchor="end" />
                <YAxis />
                <Tooltip />
-               <Bar dataKey="enrolled" fill="#36454F" />
+               <Bar dataKey="payments" fill="#36454F" />
             </BarChart>
        </ResponsiveContainer>
     </div>
